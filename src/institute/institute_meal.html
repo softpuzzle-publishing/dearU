@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    @@include('@@webRoot/_include/_head.html')
+</head>
+
+<body>
+
+    <div id="wrap">
+
+        @@include('@@webRoot/_include/_header.html')
+
+        <div id="container-block">
+
+            @@include('@@webRoot/_include/_aside.html')
+
+            <main id="content" role="main">
+
+                <!-- 컨텐츠 시작 -->
+                <h2 class="title">급식관리</h2>
+                <div class="p-3 border-bottom">
+                    <div class="row justify-content-between">
+                        <div class="col-auto">
+                            <div class="d-flex align-items-center">
+                                <select name="" id="" class="custom-select w-auto mr-2">
+                                    <option value="">관</option>
+                                </select>
+                                <select name="" id="" class="custom-select w-auto mr-2">
+                                    <option value="">업체</option>
+                                </select>
+                                <select name="" id="" class="custom-select w-auto mr-2">
+                                    <option value="">구분</option>
+                                </select>
+                                <select name="" id="" class="custom-select w-auto mr-2">
+                                    <option value="">급식일</option>
+                                </select>
+                                <input type="text" class="form-control form-datepicker mr-2" style="width:120px">
+                                <div class="mr-2">~</div>
+                                <input type="text" class="form-control form-datepicker mr-2" style="width:120px">
+                                <button type="button" class="btn btn-dark">검색</button>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modal-meal-apply-upload">급식 신청 업로드</button>
+                            <button type="button" class="btn btn-dark ml-1">파일다운로드</button>
+                            <button type="button" class="btn btn-dark ml-1" data-toggle="modal" data-target="#modal-meal-add">등록</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-3">
+                    <div class="row align-items-center mb-2">
+                        <div class="col-auto">
+                            <strong class="mr-2">급식 목록</strong>총 ###건
+                        </div>
+                        <div class="col">
+                            <input type="checkbox" id="usableOnly">
+                            <label for="usableOnly" class="mb-0">진행한 급식만 보기</label>
+                        </div>
+                        <div class="col-auto">
+                            <button type="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#modal-cafeteria-manage">급식실 관리</button>
+                            <button type="button" class="btn btn-dark btn-sm ml-1" data-toggle="modal" data-target="#modal-meal-menu">메뉴 제안</button>
+                            <button type="button" class="btn btn-dark btn-sm ml-1" data-toggle="modal" data-target="#modal-alternative">대체식 관리</button>
+                        </div>
+                    </div>
+                    <div class="main_search_result_list">
+                        <!-- softpuzzle에서 쓰는 datatable 고정 클래스명 -->
+                        <table class="table" id="datatable1">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">No</th>
+                                    <th class="text-center">급식일</th>
+                                    <th class="text-center">관</th>
+                                    <th class="text-center">업체</th>
+                                    <th class="text-center">구분</th>
+                                    <th class="text-center">메뉴</th>
+                                    <th class="text-center">원산지</th>
+                                    <th class="text-center">사진</th>
+                                    <th class="text-center">신청식수</th>
+                                    <th class="text-center">대체식수</th>
+                                    <th class="text-center">실급식수</th>
+                                    <th class="text-center">평점</th>
+                                    <th class="text-center">등록/수정</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @@for (var i = 5; i > 0; i--) {
+                                <tr>
+                                    <td class="text-center">`+ i +`</td>
+                                    <td class="text-center">2021-11-02</td>
+                                    <td class="text-center">브릿지</td>
+                                    <td class="text-center">##푸드</td>
+                                    <td class="text-center">점심</td>
+                                    <td class="text-center">
+                                        <a href="" class="text-underline">등록</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="" class="text-underline">등록</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="#modal-alternative-image" data-toggle="modal" class="text-underline">1117중식.png</a>
+                                    </td>
+                                    <td class="text-center"><a href="javascript:;" class="text-underline">344</a></td>
+                                    <td class="text-center"><a href="javascript:;" class="text-underline">23</a></td>
+                                    <td class="text-center"><a href="javascript:;" class="text-underline">420</a></td>
+                                    <td class="text-center">4.8(321)</td>
+                                    <td class="text-center">21.12.28</td>
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    @@include('@@webRoot/_include/_pagination.html')
+                </div>
+                <div class="hr"></div>
+                <div class="p-3">
+                    <div class="row align-items-center justify-content-between mb-2">
+                        <div class="col-auto">
+                            <strong class="mr-2">급식 명단</strong>총 ###건
+                        </div>
+                        <div class="col-auto">
+                            <button type="button" class="btn btn-dark btn-sm">파일다운로드</button>
+                            <button type="button" class="btn btn-dark btn-sm ml-1" data-toggle="modal" data-target="#modal-no-meal">미급식 등록</button>
+                        </div>
+                    </div>
+                    <div class="main_search_result_list">
+                        <!-- softpuzzle에서 쓰는 datatable 고정 클래스명 -->
+                        <table class="table" id="datatable1">
+                            <thead>
+                                <tr>
+                                    <th class="text-center"><input type="checkbox" data-event="checkAll" data-target="mealAll"></th>
+                                    <th class="text-center">일자</th>
+                                    <th class="text-center">관</th>
+                                    <th class="text-center">구분</th>
+                                    <th class="text-center">학생ID</th>
+                                    <th class="text-center">식사 여부</th>
+                                    <th class="text-center">급식 구분</th>
+                                    <th class="text-center">메뉴명</th>
+                                    <th class="text-center">평점</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @@for (var i = 10; i > 0; i--) {
+                                <tr>
+                                    <td class="text-center"><input type="checkbox" name="mealAll"></td>
+                                    <td class="text-center">2021-11-16</td>
+                                    <td class="text-center">브릿지관</td>
+                                    <td class="text-center">점심</td>
+                                    <td class="text-center">김학생1234</td>
+                                    <td class="text-center">
+                                        <select name="" id="" class="custom-select w-auto">
+                                            <option value="">Y</option>
+                                        </select>
+                                    </td>
+                                    <td class="text-center">급식</td>
+                                    <td class="text-center">-</td>
+                                    <td class="text-center">5</td>
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    @@include('@@webRoot/_include/_pagination.html')
+                    <div class="text-right">
+                        <input type="text" class="form-control w-auto d-inline-block align-middle mr-1" placeholder="학생ID">
+                        <button type="button" class="btn btn-dark mr-2">검색</button>
+                        <button type="button" class="btn btn-dark">삭제</button>
+                    </div>
+                </div>
+                <!-- 컨텐츠 끝 -->
+
+            </main>
+
+        </div>
+
+        @@include('@@webRoot/_include/_footer.html')
+
+    </div>
+
+    @@include('@@webRoot/_include/_modal.html')
+
+    <script>
+
+    </script>
+
+</body>
+
+</html>

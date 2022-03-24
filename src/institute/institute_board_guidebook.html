@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    @@include('@@webRoot/_include/_head.html')
+</head>
+
+<body>
+
+    <div id="wrap">
+
+        @@include('@@webRoot/_include/_header.html')
+
+        <div id="container-block">
+
+            @@include('@@webRoot/_include/_aside.html')
+
+            <main id="content" role="main">
+
+                <!-- 컨텐츠 시작 -->
+                <h2 class="title">가이드북</h2>
+                <div class="p-3 border-bottom">
+                    <div class="row justify-content-between">
+                        <div class="col-auto">
+                            <div class="d-flex align-items-center">
+                                <select name="" id="" class="custom-select w-auto mr-2">
+                                    <option value="">관</option>
+                                </select>
+                                <select name="" id="" class="custom-select w-auto mr-2">
+                                    <option value="">공개여부</option>
+                                </select>
+                                <select name="" id="" class="custom-select w-auto mr-2">
+                                    <option value="">제목</option>
+                                    <option value="">내용</option>
+                                    <option value="">작성자</option>
+                                </select>
+                                <input type="text" class="form-control d-inline-block w-auto mr-2">
+                                <button type="button" class="btn btn-dark">검색</button>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modal-guidebook-category">카테고리 관리</button>
+                            <button type="button" class="btn btn-dark ml-1" data-toggle="modal" data-target="#modal-guidebook-write">등록</button>
+                        </div>
+                    </div>
+                </div>
+                <nav class="tab-custom px-5">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" data-toggle="tab" href="#tab1" role="tab">전체(##)</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" data-toggle="tab" href="#tab2" role="tab">공간(##)</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" data-toggle="tab" href="#tab3" role="tab">컨텐츠(##)</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" data-toggle="tab" href="#tab4" role="tab">매니지먼트(##)</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="p-3">
+                    <div class="tab-content">
+                        <div class="tab-pane show active" id="tab1" role="tabpanel">
+                            <div class="main_search_result_list">
+                                <!-- softpuzzle에서 쓰는 datatable 고정 클래스명 -->
+                                <table class="table table-center" id="datatable1">
+                                    <thead>
+                                        <tr>
+                                            <th><input type="checkbox" data-event="checkAll" data-target="guidebookAll"></th>
+                                            <th>No</th>
+                                            <th>카테고리</th>
+                                            <th>대상 관</th>
+                                            <th>제목</th>
+                                            <th>공개</th>
+                                            <th>등록일/등록자</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @@for (var i = 10; i > 0; i--) {
+                                        <tr>
+                                            <td><input type="checkbox" name="guidebookAll"></td>
+                                            <td>`+ i +`</td>
+                                            <td>컨텐츠</td>
+                                            <td>전체</td>
+                                            <td>
+                                                <a href="#modal-guidebook-write" data-toggle="modal" class="text-underline">내용내용내용</a>
+                                            </td>
+                                            <td>Y</td>
+                                            <td>2021-12-28 (김시대)</td>
+                                        </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                            @@include('@@webRoot/_include/_pagination.html')
+                            <div>
+                                <button type="button" class="btn btn-dark">일괄 비공개</button>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab2" role="tabpanel">
+                        </div>
+                        <div class="tab-pane" id="tab3" role="tabpanel">
+                        </div>
+                        <div class="tab-pane" id="tab4" role="tabpanel">
+                        </div>
+                    </div>
+                </div>
+                <!-- 컨텐츠 끝 -->
+
+            </main>
+
+        </div>
+
+        @@include('@@webRoot/_include/_footer.html')
+
+    </div>
+
+    @@include('@@webRoot/_include/_modal.html')
+
+    <script>
+
+    </script>
+
+</body>
+
+</html>

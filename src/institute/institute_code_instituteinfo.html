@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    @@include('@@webRoot/_include/_head.html')
+</head>
+
+<body>
+
+    <div id="wrap">
+
+        @@include('@@webRoot/_include/_header.html')
+
+        <div id="container-block">
+
+            @@include('@@webRoot/_include/_aside.html')
+
+            <main id="content" role="main">
+
+                <!-- 컨텐츠 시작 -->
+                <h2 class="title">학원정보등록</h2>
+                <div class="p-3 border-bottom">
+                    <div class="row justify-content-between">
+                        <div class="col-auto">
+                            <div class="d-flex align-items-center">
+                                <select name="" id="" class="custom-select w-auto mr-2">
+                                    <option value="">관</option>
+                                </select>
+                                <select name="" id="" class="custom-select w-auto">
+                                    <option value="">교실</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modal-institute-info-add">등록</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-3">
+                    <div class="row align-items-center mb-2">
+                        <div class="col-auto">
+                            <strong class="mr-2">관</strong>총 ###건
+                        </div>
+                        <div class="col-auto">
+                            <input type="checkbox" id="usableOnly2">
+                            <label for="usableOnly2" class="mb-0">사용 항목만 보기</label>
+                        </div>
+                    </div>
+                    <div class="main_search_result_list">
+                        <!-- softpuzzle에서 쓰는 datatable 고정 클래스명 -->
+                        <table class="table table-center" id="datatable1">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>지역</th>
+                                    <th>관 명</th>
+                                    <th>관 담당자</th>
+                                    <th>보유 교실</th>
+                                    <th>사용</th>
+                                    <th>등록/수정</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @@for (var i = 5; i > 0; i--) {
+                                <tr>
+                                    <td>`+ i +`</td>
+                                    <td>대치</td>
+                                    <td>
+                                        <a href="#modal-institute-info-add" data-toggle="modal" class="text-underline">브릿지관</a>
+                                    </td>
+                                    <td>김시대</td>
+                                    <td><a href="javascript:;" class="text-underline">101호, 201호</a></td>
+                                    <td>Y</td>
+                                    <td>
+                                        <div class="text-nowrap">Yy/mm/dd(김시대)</div>
+                                    </td>
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    @@include('@@webRoot/_include/_pagination.html')
+                </div>
+                <div class="hr"></div>
+                <div class="p-3">
+                    <div class="row align-items-center mb-2">
+                        <div class="col-auto">
+                            <strong class="mr-2">교실</strong>총 ###건
+                        </div>
+                        <div class="col-auto">
+                            <input type="checkbox" id="usableOnly">
+                            <label for="usableOnly" class="mb-0">사용 항목만 보기</label>
+                        </div>
+                    </div>
+                    <div class="main_search_result_list">
+                        <!-- softpuzzle에서 쓰는 datatable 고정 클래스명 -->
+                        <table class="table table-center" id="datatable1">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>관 명</th>
+                                    <th>교실명</th>
+                                    <th>교실 구분</th>
+                                    <th>총 좌석</th>
+                                    <th>사용좌석</th>
+                                    <th>카드체킹기기</th>
+                                    <th>좌석배치표</th>
+                                    <th>사용</th>
+                                    <th>등록/수정</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @@for (var i = 10; i > 0; i--) {
+                                <tr>
+                                    <td>`+ i +`</td>
+                                    <td>브릿지관</td>
+                                    <td>101호</td>
+                                    <td>강의실</td>
+                                    <td>100</td>
+                                    <td>60</td>
+                                    <td>ASND2f</td>
+                                    <td>
+                                        <a href="#modal-seat" data-toggle="modal" class="text-underline">등록</a>
+                                    </td>
+                                    <td>Y</td>
+                                    <td>
+                                        <div class="text-nowrap">Yy/mm/dd(김시대)</div>
+                                    </td>
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    @@include('@@webRoot/_include/_pagination.html')
+                </div>
+                <!-- 컨텐츠 끝 -->
+
+            </main>
+
+        </div>
+
+        @@include('@@webRoot/_include/_footer.html')
+
+    </div>
+
+    @@include('@@webRoot/_include/_modal.html')
+
+    <script>
+
+    </script>
+
+</body>
+
+</html>

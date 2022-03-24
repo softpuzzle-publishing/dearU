@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    @@include('@@webRoot/_include/_head.html')
+</head>
+
+<body>
+
+    <div id="wrap">
+
+        @@include('@@webRoot/_include/_header.html')
+
+        <div id="container-block">
+
+            @@include('@@webRoot/_include/_aside.html')
+
+            <main id="content" role="main">
+
+                <!-- 컨텐츠 시작 -->
+                <h2 class="title">운영계획</h2>
+                <div class="p-3 border-bottom">
+                    <div class="row justify-content-between">
+                        <div class="col-auto">
+                            <div class="d-flex align-items-center">
+                                <select name="" id="" class="custom-select w-auto mr-2">
+                                    <option value="">연도</option>
+                                </select>
+                                <select name="" id="" class="custom-select w-auto mr-2">
+                                    <option value="">관</option>
+                                </select>
+                                <select name="" id="" class="custom-select w-auto">
+                                    <option value="">반</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <button type="button" class="btn btn-dark">파일 다운로드</button>
+                            <button type="button" class="btn btn-dark ml-1" data-toggle="modal" data-target="#modal-plan-add">등록</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-3">
+                    <div class="row align-items-center mb-2">
+                        <div class="col-auto">
+                            <strong class="mr-2">운영계획</strong>총 ###건
+                        </div>
+                        <div class="col-auto">
+                            <input type="checkbox" id="usableOnly">
+                            <label for="usableOnly" class="mb-0">운영 항목만 보기</label>
+                        </div>
+                    </div>
+                    <div class="main_search_result_list">
+                        <!-- softpuzzle에서 쓰는 datatable 고정 클래스명 -->
+                        <table class="table" id="datatable1">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">ID</th>
+                                    <th class="text-center">연도</th>
+                                    <th class="text-center">지역</th>
+                                    <th class="text-center">운영계획명</th>
+                                    <th class="text-center">운영 상태</th>
+                                    <th class="text-center">과목 등록</th>
+                                    <th class="text-center">교시 설정</th>
+                                    <th class="text-center">운영관(반)</th>
+                                    <th class="text-center">등록인원</th>
+                                    <th class="text-center">사용</th>
+                                    <th class="text-center">등록/수정</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @@for (var i = 10; i > 0; i--) {
+                                <tr>
+                                    <td class="text-center">`+ i +`</td>
+                                    <td class="text-center">2022</td>
+                                    <td class="text-center">대치</td>
+                                    <td class="text-center">2학기</td>
+                                    <td class="text-center">모집중</td>
+                                    <td class="text-center">완료</td>
+                                    <td class="text-center">
+                                        <a href="#modal-period-set" data-toggle="modal" class="text-underline">완료</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="#modal-plan-add" data-toggle="modal" class="text-underline">본관(미등록)</a>
+                                        <a href="#modal-plan-add" data-toggle="modal" class="text-underline">브릿지(4)</a>
+                                        <a href="#modal-plan-add" data-toggle="modal" class="text-underline">M3(2)</a>
+                                        <a href="#modal-plan-add" data-toggle="modal" class="text-underline">N(미등록)</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="#modal-personnel" data-toggle="modal" class="text-underline">304</a>
+                                    </td>
+                                    <td class="text-center">Y</td>
+                                    <td class="text-center">
+                                        <div class="text-nowrap">Yy/mm/dd(김시대)</div>
+                                    </td>
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    @@include('@@webRoot/_include/_pagination.html')
+                </div>
+                <!-- 컨텐츠 끝 -->
+
+            </main>
+
+        </div>
+
+        @@include('@@webRoot/_include/_footer.html')
+
+    </div>
+
+    @@include('@@webRoot/_include/_modal.html')
+
+    <script>
+
+    </script>
+
+</body>
+
+</html>

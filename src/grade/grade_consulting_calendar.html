@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    @@include('@@webRoot/_include/_head.html')
+</head>
+
+<body>
+
+    <div id="wrap">
+
+        @@include('@@webRoot/_include/_header.html')
+
+        <div id="container-block">
+
+            @@include('@@webRoot/_include/_aside.html')
+
+            <main id="content" role="main">
+
+                <!-- 컨텐츠 시작 -->
+                <h2 class="title">상담캘린더</h2>
+                <div class="p-3 border-bottom">
+                    <div class="row">
+                        <div class="col-auto">
+                            <div class="d-flex align-items-center">
+                                <input type="text" class="form-control form-datepicker mr-2" style="width: 120px">
+                                <select name="" id="" class="custom-select w-auto mr-2">
+                                    <option value="">관</option>
+                                </select>
+                                <select name="" id="" class="custom-select w-auto mr-2">
+                                    <option value="">학습상담</option>
+                                </select>
+                                <select name="" id="" class="custom-select w-auto">
+                                    <option value="">컨설턴트명</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="split-horizontal">
+                    <div class="section" id="split-horizontal-1">
+                        <div class="p-3">
+                            <div class="calendar-wrap">
+                                <div id="calendar"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section" id="split-horizontal-2">
+                        <nav class="tab-custom">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link active" data-toggle="tab" href="#tab1" role="tab">미확정</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" data-toggle="tab" href="#tab2" role="tab">일정 확정</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="tab-content">
+                            <div class="tab-pane show active" id="tab1" role="tabpanel">
+                                <div class="p-3">
+                                    <div class="row align-items-center mb-2">
+                                        <div class="col-auto">
+                                            <strong class="mr-2">미확정 상담</strong> 총 ###건
+                                        </div>
+                                    </div>
+                                    <div class="list-group list-group-toggle">
+                                        @@for (var i = 4; i > 0; i--) {
+                                        <div class="item-wrap">
+                                            <div class="list-group-top">
+                                                <a href="#modal-profile" role="button" data-toggle="modal" class="student-name text-underline">김시대2104</a>
+                                                <a href="javascript:;" class="list-group-item">
+                                                    <div class="d-flex align-items-center">
+                                                        <small class="text-danger">미확정</small>
+                                                    </div>
+                                                    <p class="mt-1 mb-1">상담신청합니다 ㅠㅠㅠㅠ</p>
+                                                    <div class="d-flex w-100 justify-content-between align-items-center text-secondary">
+                                                        <small>신청일 1/5(수) 15:15</small>
+                                                        <small>누적 4회 / 이번 달 3회</small>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="list-group-detail">
+                                                <div class="p-3">
+                                                    <p>요즘 너무 힘이 들어요  <br>저한테 관심 좀 ㅜㅜ</p>
+                                                    <div class="row align-items-center mt-3">
+                                                        <div class="col">
+                                                            <label class="mr-2">첨부파일</label>
+                                                            <a href="#none" class="text-underline">홍길동 플래너</a>
+                                                        </div>
+                                                        <div class="col-auto">
+                                                            <button type="button" class="btn btn-outline-dark btn-sm">학생시간표</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="p-3 border-top border-bottom">
+                                                    <label>상담 희망일</label>
+                                                    <div class="row row-10 mt-1">
+                                                        <div class="col-auto"><a href="javascript:;" class="btn btn-outline-secondary btn-sm"><del>1/6(목)</del></a></div>
+                                                        <div class="col-auto"><a href="javascript:;" class="btn btn-outline-secondary btn-sm">1/8(토)</a></div>
+                                                        <div class="col-auto"><a href="javascript:;" class="btn btn-outline-secondary btn-sm">1/8(토)</a></div>
+                                                        <div class="col-auto"><a href="#modal-suggestion" class="btn btn-outline-secondary btn-sm active" data-toggle="modal">일정 제안</a></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        }
+                                    </div>
+                                    @@include('@@webRoot/_include/_pagination.html')
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab2" role="tabpanel">
+                                <div class="p-3">
+                                    <div class="row align-items-center mb-2">
+                                        <div class="col-auto">
+                                            <strong class="mr-2">확정 상담</strong> 총 ###건
+                                        </div>
+                                    </div>
+                                    <div class="list-group list-group-toggle">
+                                        @@for (var i = 4; i > 0; i--) {
+                                        <div class="item-wrap" data-id="item-`+ i +`">
+                                            <div class="list-group-top">
+                                                <a href="#modal-profile" role="button" data-toggle="modal" class="student-name text-underline">이시대1234</a>
+                                                <a href="javascript:;" class="list-group-item">
+                                                    <div class="d-flex align-items-center">
+                                                        <small class="text-info">확정</small>
+                                                        <small class="font-weight-medium ml-2">1/8(토) 09:00</small>
+                                                    </div>
+                                                    <p class="mt-1 mb-1">상담신청합니다 ㅠㅠㅠㅠ</p>
+                                                    <div class="d-flex w-100 justify-content-between align-items-center text-secondary">
+                                                        <small>신청일 1/5(수) 15:15</small>
+                                                        <small>누적 4회 / 이번 달 3회</small>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="list-group-detail">
+                                                <div class="p-3">
+                                                    <p>요즘 너무 힘이 들어요  <br>저한테 관심 좀 ㅜㅜ</p>
+                                                    <div class="row align-items-center mt-3">
+                                                        <div class="col">
+                                                            <label class="mr-2">첨부파일</label>
+                                                            <a href="#none" class="text-underline">홍길동 플래너</a>
+
+                                                        </div>
+                                                        <div class="col-auto">
+                                                            <button type="button" class="btn btn-outline-dark btn-sm">학생시간표</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="p-3 border-top border-bottom">
+                                                    <div class="row row-10">
+                                                        <div class="col"><button type="button" class="btn btn-sm btn-dark btn-block">상담 진행</button></div>
+                                                        <div class="col"><button type="button" class="btn btn-sm btn-danger btn-block" data-toggle="modal" data-target="#modal-schedule-change">일정 변경</button></div>
+                                                        <div class="col"><button type="button" class="btn btn-sm btn-dark btn-block" data-toggle="modal" data-target="#modal-push-send">푸시 발송</button></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        }
+                                    </div>
+                                    @@include('@@webRoot/_include/_pagination.html')
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 컨텐츠 끝 -->
+
+            </main>
+
+        </div>
+
+        @@include('@@webRoot/_include/_footer.html')
+
+    </div>
+
+    @@include('@@webRoot/_include/_modal.html')
+
+    <!-- fullcalander v4 -->
+    <script src='../assets/lib/fullcalendar/core/main.js'></script>
+    <script src='../assets/lib/fullcalendar/core/locales/ko.js'></script>
+    <script src='../assets/lib/fullcalendar/interaction/main.js'></script>
+    <script src='../assets/lib/fullcalendar/daygrid/main.js'></script>
+    <script src='../assets/lib/fullcalendar/timegrid/main.js'></script>
+    <script>
+        setTimeout(function(){
+            splitH.setSizes([65, 35])
+            window.dispatchEvent(new Event('resize'));
+        },100);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                locale: 'ko',
+                plugins: [ 'interaction', 'dayGrid', 'timeGrid' ],
+                header: {
+                    left: 'today',
+                    center: 'prev,title,next',
+                    right: ''
+                },
+                defaultDate: '2022-03-21',
+                defaultView: 'timeGridWeek',
+                allDaySlot: false,
+                height: 'parent',
+                eventDisplay: 'block',
+                minTime: '09:00:00',
+                maxTime: '23:00:00',
+                //slotDuration: '01:00:00', //1시간 단위
+                firstDay: 1, //월요일부터 시작
+                selectable: true,
+                dateClick: function(info) { //날짜 클릭
+                    alert('Clicked on: ' + info.dateStr);
+                    $('#modal-consulting-add').modal('show');
+                },
+                eventClick: function (info) { //일정 클릭
+                    alert('Event: ' + info.event.title);
+                    $('[href="#tab2"]').tab('show');
+                    $('[data-id=item-3]').addClass('active');
+                },
+                events: [
+                    {
+                        start:"2022-03-21T16:00:00",
+                        end:"2022-03-21T17:00:00",
+                        title:"김시대2104",
+                        textColor:"#fff",
+                        borderColor:"#c2cfe3",
+                        backgroundColor:"#c2cfe3"
+                    },
+                    {
+                        start:"2022-03-25T10:00:00",
+                        end:"2022-03-25T11:00:00",
+                        title:"김시대2104",
+                        textColor:"#fff",
+                        borderColor:"#4c90f9",
+                        backgroundColor:"#4c90f9"
+                    }
+                ]
+            });
+
+            calendar.render();
+        })
+    </script>
+
+</body>
+
+</html>

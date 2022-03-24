@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    @@include('@@webRoot/_include/_head.html')
+</head>
+
+<body>
+
+    <div id="wrap">
+
+        @@include('@@webRoot/_include/_header.html')
+
+        <div id="container-block">
+
+            @@include('@@webRoot/_include/_aside.html')
+
+            <main id="content" role="main">
+
+                <!-- 컨텐츠 시작 -->
+                <h2 class="title">수강신청관리</h2>
+                <div class="p-3 border-bottom">
+                    <div class="row justify-content-between">
+                        <div class="col-auto">
+                            <div class="d-flex align-items-center">
+                                <select name="" id="" class="custom-select w-auto mr-2">
+                                    <option value="">관</option>
+                                </select>
+                                <select name="" id="" class="custom-select w-auto mr-2">
+                                    <option value="">과목</option>
+                                </select>
+                                <select name="" id="" class="custom-select w-auto mr-3">
+                                    <option value="">수업상태</option>
+                                </select>
+                                <select name="" id="" class="custom-select w-auto mr-2">
+                                    <option value="">학생ID</option>
+                                    <option value="">수업명</option>
+                                    <option value="">강사명</option>
+                                </select>
+                                <input type="text" class="form-control w-auto mr-2">
+                                <button type="button" class="btn btn-dark mr-3">검색</button>
+                                <select name="" id="" class="custom-select w-auto mr-2">
+                                    <option value="">접수일</option>
+                                    <option value="">수강시작일</option>
+                                    <option value="">수강종료일</option>
+                                </select>
+                                <input type="text" class="form-control form-datepicker mr-2" style="width:110px">
+                                <div class="mr-2">~</div>
+                                <input type="text" class="form-control form-datepicker" style="width:110px">
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <button type="button" class="btn btn-dark">파일업로드</button>
+                            <button type="button" class="btn btn-dark ml-1">파일다운로드</button>
+                            <button type="button" class="btn btn-dark ml-1" data-toggle="modal" data-target="#modal-enroll-student-add">수강생 추가등록</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-3">
+                    <div class="row align-items-center mb-2">
+                        <div class="col-auto">
+                            <strong class="mr-2">강의 목록</strong>총 ###건
+                        </div>
+                        <div class="col">
+                            <input type="checkbox" id="usableOnly">
+                            <label for="usableOnly" class="mb-0">신청 가능 항목만 보기</label>
+                        </div>
+                        <div class="col-auto">
+                            <button type="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#modal-enroll-setting">수강신청설정</button>
+                        </div>
+                    </div>
+                    <div class="main_search_result_list">
+                        <!-- softpuzzle에서 쓰는 datatable 고정 클래스명 -->
+                        <table class="table table-center" id="datatable1">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>구분</th>
+                                    <th>관</th>
+                                    <th>수업 명</th>
+                                    <th>강사 명</th>
+                                    <th>수업상태</th>
+                                    <th>금주 수강생(신규)</th>
+                                    <th>수강정원</th>
+                                    <th>대기자</th>
+                                    <th>추가 등록</th>
+                                    <th>설정</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @@for (var i = 5; i > 0; i--) {
+                                <tr>
+                                    <td>`+ i +`</td>
+                                    <td>필수</td>
+                                    <td>브릿지관</td>
+                                    <td>S반 수학 (1)</td>
+                                    <td>김시대</td>
+                                    <td>진행중</td>
+                                    <td>
+                                        <a href="javascript:;" class="text-underline">321</a>
+                                        <a href="javascript:;" class="text-underline">(12)</a>
+                                    </td>
+                                    <td>
+                                        <a href="javascript:;" class="text-underline">350</a>
+                                    </td>
+                                    <td>
+                                        <a href="javascript:;" class="text-underline">-</a>
+                                    </td>
+                                    <td>가능</td>
+                                    <td>
+                                        <a href="#modal-enroll-setting" class="text-underline" data-toggle="modal">디폴트</a>
+                                    </td>
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    @@include('@@webRoot/_include/_pagination.html')
+                </div>
+                <div class="hr"></div>
+                <div class="p-3">
+                    <div class="row align-items-center mb-2">
+                        <div class="col-auto">
+                            <strong class="mr-2">강의 신청</strong>총 ###건
+                        </div>
+                    </div>
+                    <div class="main_search_result_list">
+                        <!-- softpuzzle에서 쓰는 datatable 고정 클래스명 -->
+                        <table class="table table-center" id="datatable1">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>관</th>
+                                    <th>학생ID</th>
+                                    <th>영역</th>
+                                    <th>수업명</th>
+                                    <th>강사명</th>
+                                    <th>신청 구분</th>
+                                    <th>수강상태</th>
+                                    <th>신청일</th>
+                                    <th>수강시작일</th>
+                                    <th>수강종료일</th>
+                                    <th>등록/수정</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @@for (var i = 10; i > 0; i--) {
+                                <tr>
+                                    <td>`+ i +`</td>
+                                    <td>브릿지관</td>
+                                    <td>김학생1234</td>
+                                    <td>수학</td>
+                                    <td>미적분</td>
+                                    <td>김시대</td>
+                                    <td>앱등록</td>
+                                    <td>수강예정</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <div class="text-nowrap">Yy/mm/dd(김시대)</div>
+                                    </td>
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    @@include('@@webRoot/_include/_pagination.html')
+                </div>
+                <!-- 컨텐츠 끝 -->
+
+            </main>
+
+        </div>
+
+        @@include('@@webRoot/_include/_footer.html')
+
+    </div>
+
+    @@include('@@webRoot/_include/_modal.html')
+
+    <script>
+
+    </script>
+
+</body>
+
+</html>
