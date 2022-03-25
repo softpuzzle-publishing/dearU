@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-Compatible" content="IE=edge">
+    <title>Lysn store 관리자</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0,  viewport-fit=cover'">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="icon" type="image/png" href="../assets/images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../assets/images/favicon-32x32.png" sizes="32x32">
+
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/lib/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" href="../assets/lib/swiper/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="../assets/lib/bootstrap-timepicker/css/bootstrap-timepicker.min.css">
+    <link rel="stylesheet" href="../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.min.css">
+    <link href='../assets/lib/fullcalendar/core/main.css' rel='stylesheet' />
+    <link href='../assets/lib/fullcalendar/daygrid/main.css' rel='stylesheet' />
+    <link href='../assets/lib/fullcalendar/timegrid/main.css' rel='stylesheet' />
+
+    <link rel="stylesheet" href="../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <script src="../assets/lib/jquery/jquery.min.js"></script>
+    <script src="../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../assets/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/lib/swiper/js/swiper-bundle.min.js"></script>
+    <script src="../assets/lib/bootstrap-timepicker/js/bootstrap-timepicker.js"></script> <!-- https://jdewit.github.io/bootstrap-timepicker/ -->
+    <script src="../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../assets/lib/split.js/split.min.js"></script>
+
+    <script src="../assets/js/ui.js" defer></script>
+</head>
+
+<body>
+
+    <div id="wrap">
+
+        <header id="header">
+            <div class="row">
+                <div class="col-auto">
+                    <div class="left">
+                        <!-- <button type="button" class="btn-hamburger"><i class="material-icons">menu</i></button> -->
+                        <a href="../dashboard/dashboard.html" class="logo">
+                            <img src="../assets/images/logo-white.svg" alt="lysn store admin">
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <nav class="gnb">
+                        <ul>
+                            <li><a href="../institute/institute_code_instituteinfo.html" data-gnb-code="calculate"><span>정산</span></a></li>
+                            <li><a href="../statistics/statistics_subscribe.html" data-gnb-code="statistics"><span>통계</span></a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-auto">
+                    <div class="right">
+                        <button type="button" class="btn-my-setting" id="mySetting" data-toggle="dropdown"><i class="material-icons">settings</i></button>
+                        <div class="dropdown-menu" aria-labelledby="mySetting">
+                            <a href="" class="dropdown-item">정보수정</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#modal-password" data-toggle="modal" class="dropdown-item">비밀번호 변경</a>
+                        </div>
+                        <button type="button" class="btn-logout" onclick="document.location.href='../login/login.html'"><i class="material-icons">logout</i></button>
+                    </div>
+                </div>
+            </div>
+            <!-- modal : 비밀번호 변경 -->
+            <div class="modal" tabindex="-1" id="modal-password" data-backdrop="static">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">비밀번호 변경</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="">
+                                <table class="table table-bordered table-fixed">
+                                    <colgroup>
+                                        <col style="width: 125px;">
+                                        <col>
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th>현재 비밀번호</th>
+                                            <td>
+                                                <input type="password" class="form-control" autocomplete="current-password">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>변경 비밀번호</th>
+                                            <td>
+                                                <input type="password" class="form-control" autocomplete="new-password">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>변경 비밀번호 확인</th>
+                                            <td>
+                                                <input type="password" class="form-control" autocomplete="new-password">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button type="button" class="btn btn-dark">저장</button>
+                            <button type="button" class="btn btn-lightgray" data-dismiss="modal">취소</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div id="container-block">
+
+            <aside id="sidebar">
+                <div class="sidebar-top">
+                    <a href="../dashboard/dashboard.html" class="logo">
+                        <img src="../assets/images/logo-white.svg" alt="시대인재N">
+                    </a>
+                </div>
+                <nav class="sidebar">
+                    <div class="overflow-y-scroll">
+                        <!-- 정산 -->
+                        <ul class="dep1" data-gnb-code="calculate">
+                            <li class="has-treeview">
+                                <a href="javascript:;"><span>정산</span></a>
+                                <ul class="dep2">
+                                    <li><a href="../calculate/calculate_enrollment.html"><span>Bubble 정산 등록</span></a></li>
+                                    <li><a href="../calculate/calculate_result.html"><span>Bubble 정산 결과</span></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <!-- 통계 -->
+                        <ul class="dep1" data-gnb-code="statistics">
+                            <li class="has-treeview">
+                                <a href="javascript:;"><span>통계</span></a>
+                                <ul class="dep2">
+                                    <li><a href="../statistics/statistics_subscribe.html"><span>구독 통계</span></a></li>
+                                    <li><a href="../statistics/statistics_subscribe_increase.html"><span>구독 통계(증감)</span></a></li>
+                                    <li><a href="../statistics/statistics_subscribe_calculate.html"><span>구독 통계(정산용)</span></a></li>
+                                    <li><a href="../statistics/statistics_order_daily.html"><span>주문건 통계(일자별)</span></a></li>
+                                    <li><a href="../statistics/statistics_order_period.html"><span>주문건 통계(기간별)</span></a></li>
+                                    <li><a href="../statistics/statistics_customer_daily.html"><span>주문자 통계(일자별)</span></a></li>
+                                    <li><a href="../statistics/statistics_nation_voucher.html"><span>국가 통계(이용권별)</span></a></li>
+                                    <li><a href="../statistics/statistics_nation_artist.html"><span>국가 통계(아티스트별)</span></a></li>
+                                    <li><a href="../statistics/statistics_touch.html"><span>수발신 통계</span></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </aside>
+
+            <main id="content" role="main">
+
+                <!-- 컨텐츠 시작 -->
+                <h2 class="title">구독 통계(증감)</h2>
+                <div class="p-3">
+
+                    <table class="table table-height-46px">
+                        <colgroup>
+                            <col width="14.3%">
+                            <col>
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th class="text-center">이용권 그룹</th>
+                                <td>
+                                    <div class="row row-10">
+                                        <div class="col-2">
+                                            <select name="" id="" class="custom-select w-100">
+                                                <option value="">전체</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-center">검색일</th>
+                                <td>
+                                    <div class="row row-0 justify-content-between">
+                                        <div class="col">
+                                            <div class="row row-10 align-items-center">
+                                                <div class="col-2">
+                                                    <input type="text" class="form-control form-datepicker">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="pt-4 text-center mb-2">
+                        <button class="btn btn-primary">검색 하기</button>
+                    </div>
+                </div>
+
+                <hr class="hr">
+
+                <div class="p-3">
+                    <div class="table-title-container">
+                        <div class="row row-10">
+                            <div class="col-auto">
+                                <button type="button" class="btn btn-dark">이전</button>
+                            </div>
+                            <div class="col-auto">
+                                <button type="button" class="btn btn-dark">다음</button>
+                            </div>
+                        </div>
+                        <a href="javascript:'';" class="btn btn-primary">엑셀파일 다운로드</a>
+                    </div>
+
+                    <table class="table table-fixed table-center table-bordered">
+                        <thead>
+                            <tr>
+                                <th colspan="4">
+                                    <div class="d-flex justify-content-between p-2 font-weight-bold">
+                                        <p>2020-06-18</p>
+                                    </div>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>이용권 그룹</th>
+                                <th>구독 수</th>
+                                <th>전일 대비 구독수 증감</th>
+                                <th>전일 대비 구독수 증감률</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>전체</td>
+                                <td>100</td>
+                                <td>
+                                    <p class="text-blue">+ 10</p>
+                                </td>
+                                <td>
+                                    <p class="text-blue">+ 10%</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>슈퍼주니어</td>
+                                <td>30</td>
+                                <td>
+                                    <p class="text-danger">- 10</p>
+                                </td>
+                                <td>
+                                    <p class="text-danger">- 10%</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>소녀시대</td>
+                                <td>100</td>
+                                <td>
+                                    <p class="text-blue">+ 10</p>
+                                </td>
+                                <td>
+                                    <p class="text-blue">+ 10%</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- 컨텐츠 끝 -->
+
+            </main>
+        </div>
+
+        <footer id="footer">
+
+        </footer>
+
+        <script>
+
+        </script>
+
+    </div>
+
+
+
+    <script>
+
+    </script>
+
+</body>
+
+</html>

@@ -6,7 +6,7 @@ var Header = {
 		this.menu();
 
 		if ($('h2.title').length > 0) {
-			$('title').text($('h2.title').text() + ' | 시대인재N 관리자');
+			$('title').text($('h2.title').text() + ' | Lysn store 관리자');
 		}
 	},
 	menu: function(e){
@@ -149,6 +149,9 @@ var Common = {
 
 		//custom scroll
 		$(".overflow-y-scroll").mCustomScrollbar({
+			theme:"dark"
+		});
+		$(".overflow-x-scroll").mCustomScrollbar({
 			theme:"dark"
 		});
 

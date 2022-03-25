@@ -35,7 +35,7 @@ $grays: map-merge(
 
 $blue:    #0074FF !default;
 $sky:  #1cbfcb !default;
-$purple:  #534f8c !default;
+$purple:  #5b56a3 !default;
 $pink:    #e83e8c !default;
 $red:     #fc5162 !default;
 $orange:  #fd7e14 !default;
@@ -78,6 +78,7 @@ $theme-colors: map-merge(
     "danger":     $danger,
     "info":     $info,
     "light":      $light,
+    "blue":       $blue,
     "dark":       $dark,
     "white":      $white,
     "lightgray":      $lightgray,
@@ -239,7 +240,8 @@ $border-color:                #e6e6e6 !default;
 
 $border-radius:               0 !default;
 $border-radius-xl:            0 !default;
-$border-radius-lg:            0 !default;
+// $border-radius-lg:            0 !default;
+$border-radius-lg:            10px !default;
 $border-radius-sm:            0 !default;
 
 $rounded-pill:                50rem !default;
@@ -447,7 +449,7 @@ $btn-font-weight:             $font-weight-medium !default;
 $btn-box-shadow:              inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075) !default;
 $btn-focus-width:             $input-btn-focus-width !default;
 $btn-focus-box-shadow:        $input-btn-focus-box-shadow !default;
-$btn-disabled-opacity:        .65 !default;
+$btn-disabled-opacity:        .3 !default;
 $btn-active-box-shadow:       inset 0 3px 5px rgba($black, .125) !default;
 
 $btn-link-disabled-color:     $gray-600 !default;
@@ -527,7 +529,8 @@ $form-check-inline-margin-x:            .75rem !default;
 $form-check-inline-input-margin-x:      .3125rem !default;
 
 $form-grid-gutter-width:                10px !default;
-$form-group-margin-bottom:              1rem !default;
+// $form-group-margin-bottom:              1rem !default;
+$form-group-margin-bottom:              8px !default;
 
 $input-group-addon-color:               $input-color !default;
 $input-group-addon-bg:                  $gray-200 !default;

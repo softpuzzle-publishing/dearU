@@ -9,7 +9,7 @@ var Header = {
     this.menu();
 
     if ($('h2.title').length > 0) {
-      $('title').text($('h2.title').text() + ' | 시대인재N 관리자');
+      $('title').text($('h2.title').text() + ' | Lysn store 관리자');
     }
   },
   menu: function menu(e) {
@@ -143,6 +143,9 @@ var Common = {
     $('[data-toggle="tooltip"]').tooltip(); //custom scroll
 
     $(".overflow-y-scroll").mCustomScrollbar({
+      theme: "dark"
+    });
+    $(".overflow-x-scroll").mCustomScrollbar({
       theme: "dark"
     }); //모달 중첩 z-index 조정
 

@@ -2,10 +2,10 @@
 <html lang="ko">
 
 <head>
-    <title>(guide)시대인재N 관리자</title>
+    <title>(guide)lysn store 관리자</title>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-Compatible" content="IE=edge">
-    <title>시대인재N 관리자</title>
+    <title>Lysn store 관리자</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0,  viewport-fit=cover'">
     <meta name="format-detection" content="telephone=no">
 
@@ -80,19 +80,41 @@
                 <span class="text-danger">color danger</span>
                 <span class="bg-dark"><span class="text-white">color white</span></span>
             </div>
+            <div class="row row-0">
+                <div class="col-6">
+                    <p class="font-size-12px">.font-size-12px</p>
+                    <p class="font-size-14px">.font-size-14px</p>
+                    <p class="font-size-16px">.font-size-16px</p>
+                    <p class="font-size-18px">.font-size-18px</p>
+                    <p class="font-size-30px">.font-size-30px</p>
+                </div>
+                <div class="col-6">
+
+                </div>
+            </div>
         </section>
         <section class="col-4">
             <h1>title</h1>
-            <div>
-                <div class="table-title">강사 정보</div>
-                <div class="row justify-content-between align-items-end mb-2">
+            <div class="table-title">강사 정보</div>
+            <div class="table-title-container">
+                <div class="table-title"><i class="fas fa-caret-right"></i>Android 정산자료 업로드</div>
+            </div>
+            <div class="table-title-container">
+                <div class="table-title">
+                    <i class="fas fa-check"></i>2022-03-23 ~ 2022-03-26
+                    <a href="calculate_result_detail.html" class="btn btn-outline-dark btn-sm m-l-10">상세보기</a>
+                </div>
+            </div>
+            <div class="table-title-container">
+                <div class="row row-10">
                     <div class="col-auto">
-                        <div class="table-title mb-0">컨텐츠 신청 내역</div>
+                        <button type="button" class="btn btn-dark">이전</button>
                     </div>
                     <div class="col-auto">
-                        <button type="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#modal-contents-apply">등록</button>
+                        <button type="button" class="btn btn-dark">다음</button>
                     </div>
                 </div>
+                <a href="javascript:'';" class="btn btn-primary">엑셀파일 다운로드</a>
             </div>
         </section>
         <section class="col-4">
@@ -161,6 +183,10 @@
             <div>
                 <a href="#none" class="btn btn-outline-dark btn-sm">버튼 sm</a>
                 <a href="#none" class="btn btn-dark btn-sm">버튼 sm</a>
+                <a href="#none" class="btn btn-dark">버튼 기본</a>
+                <a href="#none" class="btn btn-lg btn-dark">버튼 lg</a>
+                <a href="#none" class="btn btn-xl btn-dark">버튼 xl</a>
+                <br>
                 <a href="#none" class="btn btn-secondary">버튼 기본</a>
                 <a href="#none" class="btn btn-dark">버튼 기본</a>
                 <a href="#none" class="btn btn-lightgray">취소</a>
@@ -172,8 +198,7 @@
                     <span class="material-icons align-middle">upload_file</span> 아이콘 버튼
                 </button>
                 <a href="#none" class="btn btn-outline-dark btn-block">버튼 block</a>
-                <a href="#none" class="btn btn-lg btn-dark">버튼 lg</a>
-                <a href="#none" class="btn btn-xl btn-dark">버튼 xl</a>
+
             </div>
         </section>
         <section class="col-4">
@@ -206,35 +231,6 @@
                     </tbody>
                 </table>
             </div>
-        </section>
-        <section class="col-4">
-            <h1>TAB</h1>
-            <div>
-                <nav class="tab-custom border-bottom-0">
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link active" data-toggle="tab" href="#tab1" role="tab">전체(##)</a>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link" data-toggle="tab" href="#tab2" role="tab">출석(##)</a>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link" data-toggle="tab" href="#tab3" role="tab">급식(##)</a>
-                        </li>
-                    </ul>
-                </nav>
-                <div class="tab-content">
-                    <div class="tab-pane show active" id="tab1" role="tabpanel">1
-                    </div>
-                    <div class="tab-pane" id="tab2" role="tabpanel">2
-                    </div>
-                    <div class="tab-pane" id="tab3" role="tabpanel">3
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="col-4">
-
         </section>
         <section class="col-4">
             <h1>pagination</h1>
@@ -293,238 +289,11 @@
                 </nav>
             </div>
         </section>
-        <section class="col-6">
-            <h1>스케줄러</h1>
-            <div class="weekly-schedule">
-                <table class="table table-bordered table-fixed table-center">
-                    <colgroup>
-                        <col style="width: 45px">
-                        <col>
-                        <col>
-                        <col>
-                        <col>
-                        <col>
-                    </colgroup>
-                    <thead>
-                        <tr>
-                            <th>교시</th>
-                            <th>월</th>
-                            <th>화</th>
-                            <th>수</th>
-                            <th>목</th>
-                            <th>금</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td></td>
-                            <td>
-                                <div class="status">조퇴</div>
-                                <div class="time">13:00~22:00</div>
-                            </td>
-                            <td></td>
-                            <td>
-                                <div class="status">결석</div>
-                                <div class="time">13:00~22:00</div>
-                            </td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th>1</th>
-                            <td class="bg-4">
-                                <div class="subject">국어</div>
-                                <div class="name">이강사</div>
-                                <div class="where">브릿지관 201호</div>
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th>2</th>
-                            <td></td>
-                            <td></td>
-                            <td class="bg-1">
-                                <div class="subject">영어</div>
-                                <div class="name">이강사</div>
-                                <div class="where">브릿지관 201호</div>
-                            </td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th>3</th>
-                            <td></td>
-                            <td></td>
-                            <td class="bg-2">
-                                <div class="subject">지구과학2</div>
-                                <div class="name">이강사</div>
-                                <div class="where">브릿지관 201호</div>
-                            </td>
-                            <td class="bg-2">
-                                <div class="subject">지구과학2</div>
-                                <div class="name">이강사</div>
-                                <div class="where">브릿지관 201호</div>
 
-                            </td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th>4</th>
-                            <td class="bg-4">
-                                <div class="subject">국어</div>
-                                <div class="name">이강사</div>
-                                <div class="where">7관 3층</div>
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th>4.5</th>
-                            <td></td>
-                            <td></td>
-                            <td class="bg-3">
-                                <div class="subject">수학</div>
-                                <div class="name">이강사</div>
-                                <div class="where">7관 3층</div>
-                            </td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th>5</th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th>6</th>
-                            <td></td>
-                            <td></td>
-                            <td class="bg-1">
-                                <div class="subject">영어</div>
-                                <div class="name">이강사</div>
-                                <div class="where">7관 3층</div>
-                            </td>
-                            <td class="bg-1">
-                                <div class="subject">영어</div>
-                                <div class="name">이강사</div>
-                                <div class="where">7관 3층</div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-        <section class="col-6">
-            <h1>split</h1>
+        <section class="col-4">
+            <h1>seperator</h1>
             <div>
-                <p>좌우스플릿 ID 규칙 : #split-horizontal-1, #split-horizontal-2....</p>
-                <div style="border: 2px solid #999;">
-                    <div class="split-horizontal" style="height:150px">
-                        <div id="split-horizontal-1">1</div>
-                        <div id="split-horizontal-2">2</div>
-                        <div id="split-horizontal-3">3</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="col-6">
-            <h1>Dual List</h1>
-            <div>
-                <div class="row row-15 align-items-center" id="quick-dual-list">
-                    <div class="col">
-                        <div class="menu-list">
-                            <div class="overflow-y-scroll">
-                                <ul class="all-list">
-                                    <li>
-                                        <span>학원 운영</span>
-                                        <ul class="dep2">
-                                            <li>
-                                                <span>학원코드</span>
-                                                <ul class="dep3">
-                                                    <li><a href="">학원정보등록</a></li>
-                                                    <li><a href="">과목 관리</a></li>
-                                                    <li><a href="">관 운영계획</a></li>
-                                                    <li><a href="">강사 등록</a></li>
-                                                    <li><a href="">거래처 관리</a></li>
-                                                    <li><a href="">직원 권한 관리</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                        <ul class="dep2">
-                                            <li>
-                                                <span>수강생 관리</span>
-                                                <ul class="dep3">
-                                                    <li><a href="">수강생관리</a></li>
-                                                    <li><a href="">수강생리스트</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                        <ul class="dep2">
-                                            <li>
-                                                <span>신청/수납</span>
-                                                <ul class="dep3">
-                                                    <li><a href="">수강신청관리</a></li>
-                                                    <li><a href="">선택교재관리</a></li>
-                                                    <li><a href="">출결카드관리</a></li>
-                                                    <li><a href="">기기대여관리</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-auto">
-                        <div>
-                            <button type="button" class="btn-move-left"><i class="material-icons">arrow_back</i></button>
-                        </div>
-                        <div class="mt-4">
-                            <button type="button" class="btn-move-right"><i class="material-icons">arrow_forward</i></button>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="menu-list">
-                            <div class="overflow-y-scroll">
-                                <ul class="selected-list">
-
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <script>
-                    //리스트 item 클릭시
-                    $('#quick-dual-list .all-list a').on('click', function(e) {
-                        e.preventDefault();
-                        const selectedItem = $('#quick-dual-list .all-list a.selected').length;
-                        const maxItem = 6;
-
-                        if (!$(this).hasClass('selected')) {
-                            if (selectedItem < maxItem) {
-                                $(this).toggleClass('selected');
-                            } else {
-                                alert(`최대 : ${maxItem}`);
-                            }
-                        } else {
-                            $(this).toggleClass('selected');
-                        }
-                    });
-                    //오른쪽으로 이동 버튼 클릭
-                    $('#quick-dual-list .btn-move-right').on('click', function() {
-                        $('#quick-dual-list .all-list a.selected').each(function() {
-                            let $item = $(this).closest('li').detach();
-                            $item.find('a').removeClass('selected');
-                            $('.selected-list').append($item);
-                        });
-                    });
-                </script>
+                <hr class="hr">
             </div>
         </section>
     </div>
