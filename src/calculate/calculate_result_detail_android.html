@@ -163,33 +163,38 @@
             <main id="content" role="main">
 
                 <!-- 컨텐츠 시작 -->
-                <h2 class="title">Bubble 정산 결과</h2>
+                <div>
+                    <h2 class="title d-none">Bubble 정산 결과</h2>
+                    <h2 class="title-location">Bubble 정산 > 정산금액 입력 > 상세 정산결과</h2>
+                </div>
+
+
                 <div class="p-3">
-                    <table class="table">
+
+                    <table class="table table-height-46px">
                         <colgroup>
                             <col width="14.3%">
                             <col>
                         </colgroup>
                         <tbody>
                             <tr>
-                                <th class="text-center">검색 기간</th>
+                                <th class="text-center">정산기간</th>
+                                <td>2022-03-23 ~ 2022-03-26</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center">정산결과 항목검색</th>
                                 <td>
-                                    <div class="row row-0 justify-content-between">
-                                        <div class="col">
-                                            <div class="row row-10 align-items-center">
-                                                <div class="col-2">
-                                                    <input type="text" class="form-control form-datepicker">
-                                                </div>
-                                                <div class="col-auto">~</div>
-                                                <div class="col-2">
-                                                    <input type="text" class="form-control form-datepicker">
-                                                </div>
-                                                <div class="col-auto"><button type="button" class="btn btn-dark">오늘</button></div>
-                                                <div class="col-auto"><button type="button" class="btn btn-dark">1주일</button></div>
-                                                <div class="col-auto"><button type="button" class="btn btn-dark">한달</button></div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <select name="" id="" class="custom-select width-200px">
+                                        <option value="">Android 정산서</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-center">정산기간</th>
+                                <td>
+                                    <select name="" id="" class="custom-select width-200px">
+                                        <option value="">전체</option>
+                                    </select>
                                 </td>
                             </tr>
                         </tbody>
@@ -204,217 +209,130 @@
                 <div class="p-3">
                     <div class="table-title-container">
                         <div class="table-title">
-                            <i class="fas fa-check"></i>2022-03-23 ~ 2022-03-26
-                            <a href="calculate_result_detail_android.html" class="btn btn-outline-dark btn-sm m-l-10">상세보기</a>
+                            <i class="fas fa-caret-right"></i>Android 정산서
                         </div>
+                        <a href="javascript:'';" class="btn btn-primary">엑셀파일 다운로드</a>
                     </div>
-
+                    <!-- 안드로이드 정산서 -->
                     <table class="table table-center table-fixed table-bordered">
                         <thead>
                             <tr>
-                                <th colspan="7" class="font-weight-bold py-3">수익 요약</th>
-                            </tr>
-                            <tr>
-                                <th rowspan="2">지역</th>
-                                <th colspan="3">Android</th>
-                                <th colspan="3">iOS</th>
-                            </tr>
-                            <tr>
-                                <th>Admin 매출</th>
-                                <th>OS 매출액</th>
-                                <th>OS 정산후</th>
-                                <th>Admin 매출</th>
-                                <th>OS 매출액</th>
-                                <th>OS 정산후</th>
+                                <th>이용권 그룹</th>
+                                <th>상품명</th>
+                                <th>Buyer Country</th>
+                                <th>Transaction Type</th>
+                                <th>Amount(Merchant Currency)</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>국내</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
+                                <td rowspan="8">전체</td>
+                                <td rowspan="8">전체</td>
+                                <td rowspan="8">전체</td>
+                                <td>Charge</td>
                                 <td>n</td>
                             </tr>
                             <tr>
-                                <td>일본</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
+                                <td>Charge refund</td>
                                 <td>n</td>
                             </tr>
                             <tr>
-                                <td>중국</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
+                                <td>Tax</td>
                                 <td>n</td>
                             </tr>
                             <tr>
-                                <td>미국</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
+                                <td>Tax refund</td>
                                 <td>n</td>
                             </tr>
                             <tr>
-                                <td>홍콩</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
+                                <td>Google fee</td>
                                 <td>n</td>
                             </tr>
                             <tr>
-                                <td>동남아시아</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
+                                <td>Google fee refund</td>
                                 <td>n</td>
                             </tr>
                             <tr>
-                                <td>유럽</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
+                                <td>판매수</td>
                                 <td>n</td>
                             </tr>
                             <tr>
-                                <td>남아메리카</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
+                                <td>OS 정산후</td>
                                 <td>n</td>
                             </tr>
                             <tr>
-                                <td>기타</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
+                                <td rowspan="16">소녀시대</td>
+                                <td rowspan="16">전체</td>
+                                <td rowspan="8">전체</td>
+                                <td>Charge</td>
                                 <td>n</td>
                             </tr>
                             <tr>
-                                <td>해외합계</td>
+                                <td>Charge refund</td>
                                 <td>n</td>
+                            </tr>
+                            <tr>
+                                <td>Tax</td>
                                 <td>n</td>
+                            </tr>
+                            <tr>
+                                <td>Tax refund</td>
                                 <td>n</td>
+                            </tr>
+                            <tr>
+                                <td>Google fee</td>
                                 <td>n</td>
+                            </tr>
+                            <tr>
+                                <td>Google fee refund</td>
                                 <td>n</td>
+                            </tr>
+                            <tr>
+                                <td>판매수</td>
+                                <td>n</td>
+                            </tr>
+                            <tr>
+                                <td>OS 정산후</td>
+                                <td>n</td>
+                            </tr>
+                            <!-- ---국내--- -->
+                            <tr>
+                                <td rowspan="8">국내</td>
+                                <td>Charge</td>
+                                <td>n</td>
+                            </tr>
+                            <tr>
+                                <td>Charge refund</td>
+                                <td>n</td>
+                            </tr>
+                            <tr>
+                                <td>Tax</td>
+                                <td>n</td>
+                            </tr>
+                            <tr>
+                                <td>Tax refund</td>
+                                <td>n</td>
+                            </tr>
+                            <tr>
+                                <td>Google fee</td>
+                                <td>n</td>
+                            </tr>
+                            <tr>
+                                <td>Google fee refund</td>
+                                <td>n</td>
+                            </tr>
+                            <tr>
+                                <td>판매수</td>
+                                <td>n</td>
+                            </tr>
+                            <tr>
+                                <td>OS 정산후</td>
                                 <td>n</td>
                             </tr>
                         </tbody>
-                        <tfoot>
-                            <tr>
-                                <td>합계</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                            </tr>
-                        </tfoot>
                     </table>
-
-                    <table class="table table-center table-fixed table-bordered mt-5">
-                        <thead>
-                            <tr>
-                                <th colspan="3" class="font-weight-bold py-3">정산액</th>
-                            </tr>
-                            <tr>
-                                <th>지역</th>
-                                <th>디어유</th>
-                                <th>아티스트 전체</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <tr>
-                                <td>국내</td>
-                                <td>n</td>
-                                <td>n</td>
-                            </tr>
-
-                            <tr>
-                                <td>국내</td>
-                                <td>n</td>
-                                <td>n</td>
-                            </tr>
-
-                            <tr>
-                                <td>국내</td>
-                                <td>n</td>
-                                <td>n</td>
-                            </tr>
-
-                            <tr>
-                                <td>국내</td>
-                                <td>n</td>
-                                <td>n</td>
-                            </tr>
-
-                            <tr>
-                                <td>국내</td>
-                                <td>n</td>
-                                <td>n</td>
-                            </tr>
-
-                            <tr>
-                                <td>국내</td>
-                                <td>n</td>
-                                <td>n</td>
-                            </tr>
-
-                            <tr>
-                                <td>국내</td>
-                                <td>n</td>
-                                <td>n</td>
-                            </tr>
-
-                            <tr>
-                                <td>국내</td>
-                                <td>n</td>
-                                <td>n</td>
-                            </tr>
-
-                            <tr>
-                                <td>국내</td>
-                                <td>n</td>
-                                <td>n</td>
-                            </tr>
-
-                            <tr>
-                                <td>국내</td>
-                                <td>n</td>
-                                <td>n</td>
-                            </tr>
-
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td>합계</td>
-                                <td>n</td>
-                                <td>n</td>
-                            </tr>
-                        </tfoot>
-                    </table>
+                    <!-- 안드로이드 정산서 끝 -->
+                    <a href="javascript:history.back();" class="btn btn-dark mt-2">뒤로</a>
                 </div>
                 <!-- 컨텐츠 끝 -->
 
