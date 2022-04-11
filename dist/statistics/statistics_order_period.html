@@ -17,7 +17,8 @@
     <link rel="stylesheet" href="../assets/lib/jquery-ui/jquery-ui.min.css">
     <link rel="stylesheet" href="../assets/lib/swiper/css/swiper-bundle.min.css">
     <link rel="stylesheet" href="../assets/lib/bootstrap-timepicker/css/bootstrap-timepicker.min.css">
-    <link rel="stylesheet" href="../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="../assets/lib/datatables/css/dataTables.bootstrap4.css">
+
     <link href='../assets/lib/fullcalendar/core/main.css' rel='stylesheet' />
     <link href='../assets/lib/fullcalendar/daygrid/main.css' rel='stylesheet' />
     <link href='../assets/lib/fullcalendar/timegrid/main.css' rel='stylesheet' />
@@ -31,6 +32,8 @@
     <script src="../assets/lib/swiper/js/swiper-bundle.min.js"></script>
     <script src="../assets/lib/bootstrap-timepicker/js/bootstrap-timepicker.js"></script> <!-- https://jdewit.github.io/bootstrap-timepicker/ -->
     <script src="../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../assets/lib/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="../assets/lib/datatables/js/dataTables.bootstrap4.js"></script>
     <script src="../assets/lib/split.js/split.min.js"></script>
 
     <script src="../assets/js/ui.js" defer></script>
@@ -56,6 +59,7 @@
                             <li><a href="../institute/institute_code_instituteinfo.html" data-gnb-code="calculate"><span>정산</span></a></li>
                             <li><a href="../statistics/statistics_subscribe.html" data-gnb-code="statistics"><span>통계</span></a></li>
                             <li><a href="../system_link/system_link.html" data-gnb-code="system_link"><span>연동 정보 관리</span></a></li>
+                            <li><a href="../setting/setting_account.html" data-gnb-code="setting"><span>관리</span></a></li>
                         </ul>
                     </nav>
                 </div>
@@ -117,6 +121,15 @@
                                 <ul class="dep2">
                                     <li><a href="../system_link/system_link.html"><span>연동 정보 관리</span></a></li>
                                     <li><a href="../system_link/agency.html"><span>소속사 관리</span></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <!-- 관리 -->
+                        <ul class="dep1" data-gnb-code="setting">
+                            <li class="has-treeview">
+                                <a href="javascript:;"><span>관리</span></a>
+                                <ul class="dep2">
+                                    <li><a href="../setting/setting_account.html"><span>계정 관리</span></a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -283,7 +296,7 @@
     <div>
         <!-- modal : 비밀번호 변경 -->
         <div class="modal" tabindex="-1" id="modal-password" data-backdrop="static">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">비밀번호 변경</h5>
@@ -331,7 +344,7 @@
 
         <!-- modal : 반영완료 -->
         <div class="modal" tabindex="-1" id="modal-reflect" data-backdrop="static">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
                     <div class="modal-body text-center">
                         <p class="h4 py-5 m-t-10">반영 완료</p>
@@ -345,7 +358,7 @@
 
         <!-- modal : 연동 정보 관리 >> 앱 등록 / 수정 -->
         <div class="modal" tabindex="-1" id="modal-system-app" data-backdrop="static" data-overlap="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">앱 등록 / 수정</h5>
@@ -381,7 +394,7 @@
 
         <!-- modal : 연동 정보 관리 >> 이용권 그룹 등록 / 수정 -->
         <div class="modal" tabindex="-1" id="modal-system-group" data-backdrop="static" data-overlap="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">이용권 그룹 등록 / 수정</h5>
@@ -425,7 +438,7 @@
 
         <!-- modal : 연동 정보 관리 >> 아티스트 등록 / 수정 -->
         <div class="modal" tabindex="-1" id="modal-system-artist" data-backdrop="static" data-overlap="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">아티스트 등록 / 수정</h5>
@@ -461,7 +474,7 @@
 
         <!-- modal : 연동 정보 관리 >> 상품 등록 / 수정 -->
         <div class="modal" tabindex="-1" id="modal-system-product" data-backdrop="static" data-overlap="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">상품 등록 / 수정</h5>
@@ -497,7 +510,7 @@
 
         <!-- modal : 연동 정보 관리 >> [공통] 저장 확인-->
         <div class="modal" tabindex="-1" id="modal-system-save-complete" data-backdrop="static">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
                     <div class="modal-body text-center">
                         <p class="h4 py-5 m-t-10">저장하시겠습니까?</p>
@@ -512,7 +525,7 @@
 
         <!-- modal : 연동 정보 관리 >> [공통] 저장 불가  {{안에만 바꿔주세요 이외는 공통입니다}}-->
         <div class="modal" tabindex="-1" id="modal-system-save-fail" data-backdrop="static">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
                     <div class="modal-body text-center">
                         <p class="h4 py-5 m-t-10">동일한 {{앱 그룹}} 연동 ID가 존재합니다.</p>
@@ -526,7 +539,7 @@
 
         <!-- modal : 소속사 관리 >> 소속사 등록 / 수정 -->
         <div class="modal" tabindex="-1" id="modal-agency" data-backdrop="static" data-overlap="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">소속사 등록 / 수정</h5>
@@ -555,7 +568,7 @@
 
         <!-- modal : 소속사 관리 >> 소속사 삭제 -->
         <div class="modal" tabindex="-1" id="modal-agency-delete" data-backdrop="static" data-overlap="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">소속사 삭제</h5>
@@ -591,7 +604,7 @@
 
         <!-- modal : 소속사 관리 >> 저장 확인-->
         <div class="modal" tabindex="-1" id="modal-agency-save-complete" data-backdrop="static">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
                     <div class="modal-body text-center">
                         <p class="h4 py-5 m-t-10">소속사명을 저장합니다.</p>
@@ -606,7 +619,7 @@
 
         <!-- modal : 소속사 관리 >> 삭제 확인-->
         <div class="modal" tabindex="-1" id="modal-agency-delete-confirm" data-backdrop="static">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
                     <div class="modal-body text-center">
                         <p class="h4 py-5 m-t-10">소속사를 삭제하시겠습니까?</p>
@@ -621,7 +634,7 @@
 
         <!-- modal : 소속사 관리 >> 삭제 불가-->
         <div class="modal" tabindex="-1" id="modal-agency-delete-fail" data-backdrop="static">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
                     <div class="modal-body text-center">
                         <p class="h4 py-5 m-t-10">계정 정보가 일치하지 않습니다.</p>
@@ -632,6 +645,97 @@
                 </div>
             </div>
         </div>
+
+        <!-- modal : 계정관리 >> 잠금 해제-->
+        <div class="modal" tabindex="-1" id="modal-unlock" data-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <p class="h4 py-5 m-t-10">해당 계정의 잠금을 해제하시겠습니가?</p>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-dark">확인</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- modal : 계정관리 >> 잠금 해제-->
+        <div class="modal" tabindex="-1" id="modal-lock" data-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <p class="h4 py-5 m-t-10">해당 계정을 잠금 상태로 전환합니다.</p>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-dark">확인</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- modal : 계정관리 >> 로그 보기-->
+        <div class="modal" tabindex="-1" id="modal-account-log" data-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">{{관리자1}}의 로그 기록</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body border w-100" style="max-height: 500px;  overflow-y : auto;">
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-dark">확인</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- modal : 관리 >> [공통] 삭제 {{안에만 바꿔주세요 이외는 공통입니다}}-->
+        <div class="modal" tabindex="-1" id="modal-setting-delete" data-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <p class="h4 py-5 m-t-10">해당 {{계정, 권한}}을 정말 삭제 하시겠습니까?<br>삭제하신 계정은 복구할 수 없습니다.</p>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-dark">확인</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 
     </div>
 
