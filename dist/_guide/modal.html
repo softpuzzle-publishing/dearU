@@ -2,6 +2,7 @@
 <html lang="ko">
 
 <head>
+    <title>(modal)lysn</title>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-Compatible" content="IE=edge">
     <title>Lysn store 관리자</title>
@@ -34,276 +35,24 @@
     <script src="../assets/lib/split.js/split.min.js"></script>
 
     <script src="../assets/js/ui.js" defer></script>
+    <style>
+        body {
+            padding: 30px;
+        }
+
+        .modal {
+            display: block !important;
+            position: static !important;
+        }
+
+        .modal-dialog {
+            margin-top: .5rem;
+            margin-bottom: .5rem;
+        }
+    </style>
 </head>
 
 <body>
-
-    <div id="wrap">
-
-        <header id="header">
-            <div class="row">
-                <div class="col-auto">
-                    <div class="left">
-                        <!-- <button type="button" class="btn-hamburger"><i class="material-icons">menu</i></button> -->
-                        <a href="../dashboard/dashboard.html" class="logo">
-                            <img src="../assets/images/logo-white.svg" alt="lysn store admin">
-                        </a>
-                    </div>
-                </div>
-                <div class="col">
-                    <nav class="gnb">
-                        <ul>
-                            <li><a href="../institute/institute_code_instituteinfo.html" data-gnb-code="calculate"><span>정산</span></a></li>
-                            <li><a href="../statistics/statistics_subscribe.html" data-gnb-code="statistics"><span>통계</span></a></li>
-                            <li><a href="../system_link/system_link.html" data-gnb-code="system_link"><span>연동 정보 관리</span></a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-auto">
-                    <div class="right">
-                        <button type="button" class="btn-my-setting" id="mySetting" data-toggle="dropdown"><i class="material-icons">settings</i></button>
-                        <div class="dropdown-menu" aria-labelledby="mySetting">
-                            <a href="" class="dropdown-item">정보수정</a>
-                            <div class="dropdown-divider"></div>
-                            <a href="#modal-password" data-toggle="modal" class="dropdown-item">비밀번호 변경</a>
-                        </div>
-                        <button type="button" class="btn-logout" onclick="document.location.href='../login/login.html'"><i class="material-icons">logout</i></button>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <div id="container-block">
-
-            <aside id="sidebar">
-                <div class="sidebar-top">
-                    <a href="../dashboard/dashboard.html" class="logo">
-                        <img src="../assets/images/logo-white.svg" alt="시대인재N">
-                    </a>
-                </div>
-                <nav class="sidebar">
-                    <div class="overflow-y-scroll">
-                        <!-- 정산 -->
-                        <ul class="dep1" data-gnb-code="calculate">
-                            <li class="has-treeview">
-                                <a href="javascript:;"><span>정산</span></a>
-                                <ul class="dep2">
-                                    <li><a href="../calculate/calculate_enrollment.html"><span>Bubble 정산 등록</span></a></li>
-                                    <li><a href="../calculate/calculate_result.html"><span>Bubble 정산 결과</span></a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <!-- 통계 -->
-                        <ul class="dep1" data-gnb-code="statistics">
-                            <li class="has-treeview">
-                                <a href="javascript:;"><span>통계</span></a>
-                                <ul class="dep2">
-                                    <li><a href="../statistics/statistics_subscribe.html"><span>구독 통계</span></a></li>
-                                    <li><a href="../statistics/statistics_subscribe_increase.html"><span>구독 통계(증감)</span></a></li>
-                                    <li><a href="../statistics/statistics_subscribe_calculate.html"><span>구독 통계(정산용)</span></a></li>
-                                    <li><a href="../statistics/statistics_order_daily.html"><span>주문건 통계(일자별)</span></a></li>
-                                    <li><a href="../statistics/statistics_order_period.html"><span>주문건 통계(기간별)</span></a></li>
-                                    <li><a href="../statistics/statistics_customer_daily.html"><span>주문자 통계(일자별)</span></a></li>
-                                    <li><a href="../statistics/statistics_nation_voucher.html"><span>국가 통계(이용권별)</span></a></li>
-                                    <li><a href="../statistics/statistics_nation_artist.html"><span>국가 통계(아티스트별)</span></a></li>
-                                    <li><a href="../statistics/statistics_touch.html"><span>수발신 통계</span></a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <!-- 연동 정보 관리 -->
-                        <ul class="dep1" data-gnb-code="system_link">
-                            <li class="has-treeview">
-                                <a href="javascript:;"><span>연동 정보 관리</span></a>
-                                <ul class="dep2">
-                                    <li><a href="../system_link/system_link.html"><span>연동 정보 관리</span></a></li>
-                                    <li><a href="../system_link/agency.html"><span>소속사 관리</span></a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </aside>
-
-            <main id="content" role="main">
-
-                <!-- 컨텐츠 시작 -->
-                <div>
-                    <h2 class="title d-none">Bubble 정산 결과</h2>
-                    <h2 class="title-location">Bubble 정산 > 정산금액 입력 > 상세 정산결과</h2>
-                </div>
-
-
-                <div class="p-3">
-
-                    <table class="table table-height-46px">
-                        <colgroup>
-                            <col width="14.3%">
-                            <col>
-                        </colgroup>
-                        <tbody>
-                            <tr>
-                                <th class="text-center">정산기간</th>
-                                <td>2022-03-23 ~ 2022-03-26</td>
-                            </tr>
-                            <tr>
-                                <th class="text-center">정산결과 항목검색</th>
-                                <td>
-                                    <select name="" id="" class="custom-select width-200px">
-                                        <option value="">Android 정산서</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="text-center">정산기간</th>
-                                <td>
-                                    <select name="" id="" class="custom-select width-200px">
-                                        <option value="">전체</option>
-                                    </select>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="pt-4 text-center mb-2">
-                        <button class="btn btn-primary">검색 하기</button>
-                    </div>
-                </div>
-
-                <hr class="hr">
-
-                <div class="p-3">
-                    <div class="table-title-container">
-                        <div class="table-title">
-                            <i class="fas fa-caret-right"></i>Android 정산 요약
-                        </div>
-                        <a href="javascript:'';" class="btn btn-primary">엑셀파일 다운로드</a>
-                    </div>
-                    <!-- 안드로이드 정산서 -->
-                    <table class="table table-center table-fixed table-bordered">
-                        <thead>
-                            <tr>
-                                <th>이용권 그룹</th>
-                                <th>지역</th>
-                                <th>상품명</th>
-                                <th>판매수</th>
-                                <th>Charge total</th>
-                                <th>Tax total</th>
-                                <th>Google fee total</th>
-                                <th>OS 정산후</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td rowspan="10">REd velvet</td>
-                                <td rowspan="5">국내</td>
-                                <td>합계</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                            </tr>
-
-                            <tr>
-                                <td>1인권</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                            </tr>
-
-                            <tr>
-                                <td>2인권</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                            </tr>
-
-                            <tr>
-                                <td>3인권</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                            </tr>
-
-                            <tr>
-                                <td>4인권</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                            </tr>
-
-                            <tr>
-                                <td rowspan="5">국외</td>
-                                <td>합계</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                            </tr>
-
-                            <tr>
-                                <td>1인권</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                            </tr>
-
-                            <tr>
-                                <td>2인권</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                            </tr>
-
-                            <tr>
-                                <td>3인권</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                            </tr>
-
-                            <tr>
-                                <td>4인권</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-                    <a href="javascript:history.back();" class="btn btn-dark mt-2">뒤로</a>
-                </div>
-                <!-- 컨텐츠 끝 -->
-
-            </main>
-        </div>
-
-        <footer id="footer">
-
-        </footer>
-
-        <script>
-
-        </script>
-
-    </div>
-
     <div>
         <!-- modal : 비밀번호 변경 -->
         <div class="modal" tabindex="-1" id="modal-password" data-backdrop="static">
@@ -658,11 +407,6 @@
         </div>
 
     </div>
-
-    <script>
-
-    </script>
-
 </body>
 
 </html>

@@ -40,125 +40,11 @@
 
     <div id="wrap">
 
-        <header id="header">
-            <div class="row">
-                <div class="col-auto">
-                    <div class="left">
-                        <!-- <button type="button" class="btn-hamburger"><i class="material-icons">menu</i></button> -->
-                        <a href="../dashboard/dashboard.html" class="logo">
-                            <img src="../assets/images/logo-white.svg" alt="lysn store admin">
-                        </a>
-                    </div>
-                </div>
-                <div class="col">
-                    <nav class="gnb">
-                        <ul>
-                            <li><a href="../institute/institute_code_instituteinfo.html" data-gnb-code="calculate"><span>정산</span></a></li>
-                            <li><a href="../statistics/statistics_subscribe.html" data-gnb-code="statistics"><span>통계</span></a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-auto">
-                    <div class="right">
-                        <button type="button" class="btn-my-setting" id="mySetting" data-toggle="dropdown"><i class="material-icons">settings</i></button>
-                        <div class="dropdown-menu" aria-labelledby="mySetting">
-                            <a href="" class="dropdown-item">정보수정</a>
-                            <div class="dropdown-divider"></div>
-                            <a href="#modal-password" data-toggle="modal" class="dropdown-item">비밀번호 변경</a>
-                        </div>
-                        <button type="button" class="btn-logout" onclick="document.location.href='../login/login.html'"><i class="material-icons">logout</i></button>
-                    </div>
-                </div>
-            </div>
-            <!-- modal : 비밀번호 변경 -->
-            <div class="modal" tabindex="-1" id="modal-password" data-backdrop="static">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">비밀번호 변경</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="">
-                                <table class="table table-bordered table-fixed">
-                                    <colgroup>
-                                        <col style="width: 125px;">
-                                        <col>
-                                    </colgroup>
-                                    <tbody>
-                                        <tr>
-                                            <th>현재 비밀번호</th>
-                                            <td>
-                                                <input type="password" class="form-control" autocomplete="current-password">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th>변경 비밀번호</th>
-                                            <td>
-                                                <input type="password" class="form-control" autocomplete="new-password">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th>변경 비밀번호 확인</th>
-                                            <td>
-                                                <input type="password" class="form-control" autocomplete="new-password">
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </form>
-                        </div>
-                        <div class="modal-footer justify-content-center">
-                            <button type="button" class="btn btn-dark">저장</button>
-                            <button type="button" class="btn btn-lightgray" data-dismiss="modal">취소</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+        @@include('@@webRoot/_include/_header.html')
 
         <div id="container-block">
 
-            <aside id="sidebar">
-                <div class="sidebar-top">
-                    <a href="../dashboard/dashboard.html" class="logo">
-                        <img src="../assets/images/logo-white.svg" alt="시대인재N">
-                    </a>
-                </div>
-                <nav class="sidebar">
-                    <div class="overflow-y-scroll">
-                        <!-- 정산 -->
-                        <ul class="dep1" data-gnb-code="calculate">
-                            <li class="has-treeview">
-                                <a href="javascript:;"><span>정산</span></a>
-                                <ul class="dep2">
-                                    <li><a href="../calculate/calculate_enrollment.html"><span>Bubble 정산 등록</span></a></li>
-                                    <li><a href="../calculate/calculate_result.html"><span>Bubble 정산 결과</span></a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <!-- 통계 -->
-                        <ul class="dep1" data-gnb-code="statistics">
-                            <li class="has-treeview">
-                                <a href="javascript:;"><span>통계</span></a>
-                                <ul class="dep2">
-                                    <li><a href="../statistics/statistics_subscribe.html"><span>구독 통계</span></a></li>
-                                    <li><a href="../statistics/statistics_subscribe_increase.html"><span>구독 통계(증감)</span></a></li>
-                                    <li><a href="../statistics/statistics_subscribe_calculate.html"><span>구독 통계(정산용)</span></a></li>
-                                    <li><a href="../statistics/statistics_order_daily.html"><span>주문건 통계(일자별)</span></a></li>
-                                    <li><a href="../statistics/statistics_order_period.html"><span>주문건 통계(기간별)</span></a></li>
-                                    <li><a href="../statistics/statistics_customer_daily.html"><span>주문자 통계(일자별)</span></a></li>
-                                    <li><a href="../statistics/statistics_nation_voucher.html"><span>국가 통계(이용권별)</span></a></li>
-                                    <li><a href="../statistics/statistics_nation_artist.html"><span>국가 통계(아티스트별)</span></a></li>
-                                    <li><a href="../statistics/statistics_touch.html"><span>수발신 통계</span></a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </aside>
+            @@include('@@webRoot/_include/_aside.html')
 
             <main id="content" role="main">
 
@@ -276,17 +162,11 @@
             </main>
         </div>
 
-        <footer id="footer">
-
-        </footer>
-
-        <script>
-
-        </script>
+        @@include('@@webRoot/_include/_footer.html')
 
     </div>
 
-
+    @@include('@@webRoot/_include/_modal.html')
 
     <script>
 
