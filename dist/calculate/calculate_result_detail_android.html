@@ -677,7 +677,7 @@
             </div>
         </div>
 
-        <!-- modal : 계정관리 >> 잠금 해제-->
+        <!-- modal : 계정관리 >> 잠금 해제 확인-->
         <div class="modal" tabindex="-1" id="modal-unlock" data-backdrop="static">
             <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
@@ -751,21 +751,7 @@
             </div>
         </div>
 
-        <!-- modal : 계정관리 >> 저장 확인 -->
-        <div class="modal" tabindex="-1" id="modal-account-save" data-backdrop="static">
-            <div class="modal-dialog modal-dialog-centered modal-sm">
-                <div class="modal-content">
-                    <div class="modal-body text-center">
-                        <p class="h4 py-5 m-t-10">계정이 생성 되었습니다.</p>
-                    </div>
-                    <div class="modal-footer justify-content-center">
-                        <button type="button" class="btn btn-dark" data-dismiss="modal">확인</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- modal : 관리 >> 계정관리 >> 삭제-->
+        <!-- modal : 계정관리 >> 삭제-->
         <div class="modal" tabindex="-1" id="modal-account-delete" data-backdrop="static">
             <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
@@ -780,7 +766,21 @@
             </div>
         </div>
 
-        <!-- modal : 계정관리 >> 저장 확인 -->
+        <!-- modal : 계정관리 >>  저장 확인 > 완료 -->
+        <div class="modal" tabindex="-1" id="modal-account-save" data-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <p class="h4 py-5 m-t-10">계정이 생성 되었습니다.</p>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-dark" data-dismiss="modal">확인</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- modal : 계정관리 >> 저장 확인 > 실패 -->
         <div class="modal" tabindex="-1" id="modal-account-save-fail" data-backdrop="static">
             <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
@@ -794,7 +794,7 @@
             </div>
         </div>
 
-        <!-- modal : 관리 >> 권한 관리 >> 삭제-->
+        <!-- modal : 권한 관리 >> 삭제-->
         <div class="modal" tabindex="-1" id="modal-authority-delete" data-backdrop="static">
             <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
@@ -809,7 +809,7 @@
             </div>
         </div>
 
-        <!-- modal : 관리 >> 권한 관리 >> 권한 계정 목록-->
+        <!-- modal : 권한 관리 >> 권한 계정 목록-->
         <div class="modal" tabindex="-1" id="modal-authority-list" data-backdrop="static">
             <div class="modal-dialog modal-dialog-centered modal-md">
                 <div class="modal-content">
@@ -913,9 +913,9 @@
             </div>
         </div>
 
-        <!-- modal : 관리 >> 권한 관리 >> 부여 가능한 권한찾기-->
+        <!-- modal : 권한 관리 >> 부여 가능한 권한찾기-->
         <div class="modal" tabindex="-1" id="modal-authority-find" data-backdrop="static">
-            <div class="modal-dialog modal-dialog-centered modal-md">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">부여 가능한 권한 찾기</h5>
@@ -939,18 +939,18 @@
                             </tbody>
                         </table>
 
-                        <div class="pt-4 text-center mb-2">
+                        <div class="pt-4 text-center mb-5">
                             <button class="btn btn-primary">검색 하기</button>
                         </div>
 
                         <hr class="hr">
 
-                        <table class="table table-bordered pt-3">
+                        <table class="table table-bordered pt-3 text-center m-t-20">
                             <colgroup>
-                                <col width="8%;">
+                                <col style="width:6%">
                                 <col>
-                                <col width="20%;">
                                 <col>
+                                <col style="width:10%">
                             </colgroup>
                             <thead>
                                 <tr>
@@ -972,12 +972,13 @@
                                     </td>
                                     <td>권한명1</td>
                                     <td>
-                                        <div class="text-truncate d-block">
+                                        <div class="text-truncate d-block" style="width:500px;">
                                             설명설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명
                                         </div>
                                     </td>
                                     <td>
                                         <span class="text-danger">Y</span>
+                                        <span>N</span>
                                     </td>
                                 </tr>
 
@@ -988,12 +989,13 @@
                                     </td>
                                     <td>권한명2</td>
                                     <td>
-                                        <div class="text-truncate d-block">
+                                        <div class="text-truncate d-block" style="width:500px;">
                                             설명설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명
                                         </div>
                                     </td>
                                     <td>
                                         <span class="text-danger">Y</span>
+                                        <span>N</span>
                                     </td>
                                 </tr>
 
@@ -1004,12 +1006,13 @@
                                     </td>
                                     <td>권한명3</td>
                                     <td>
-                                        <div class="text-truncate d-block">
+                                        <div class="text-truncate d-block" style="width:500px;">
                                             설명설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명
                                         </div>
                                     </td>
                                     <td>
                                         <span class="text-danger">Y</span>
+                                        <span>N</span>
                                     </td>
                                 </tr>
 
@@ -1020,12 +1023,13 @@
                                     </td>
                                     <td>권한명4</td>
                                     <td>
-                                        <div class="text-truncate d-block">
+                                        <div class="text-truncate d-block" style="width:500px;">
                                             설명설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명
                                         </div>
                                     </td>
                                     <td>
                                         <span class="text-danger">Y</span>
+                                        <span>N</span>
                                     </td>
                                 </tr>
 
@@ -1088,6 +1092,21 @@
                     <div class="modal-footer justify-content-center">
                         <button type="button" class="btn btn-dark">확인</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- modal : 권한 관리 >> 등록 여부-->
+        <div class="modal" tabindex="-1" id="modal-authority-save" data-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal-content text-center">
+                    <div class="modal-body">
+                        <p class="h4 py-5 m-t-10">권한이 등록되었습니다.</p>
+                        <!-- <p class="h4 py-5 m-t-10">권한명과 권한메뉴는 필수값입니다.</p> -->
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-dark" data-dismiss="modal">확인</button>
                     </div>
                 </div>
             </div>

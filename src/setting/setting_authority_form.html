@@ -41,7 +41,7 @@
                             <tr>
                                 <th>*권한메뉴</th>
                                 <td class="text-left">
-                                    <div class="w-100 border p-3" style="height:300px; overflow-x: hidden; overflow-y:auto">
+                                    <div class="w-100 border p-3" style="min-height:200px; max-height:500px; overflow-x: hidden; overflow-y:auto">
                                         <ul class="authority-list">
                                             <li class="authority-depth1">
                                                 <div>
@@ -73,7 +73,7 @@
                                                 <div class="authority-depth2  row row-0 align-items-center">
                                                     <div class="col-2">
                                                         <input type="checkbox" name="AuthorUse" id="checkbox1">
-                                                        <label for="checkbox1">어드민 계정 관리</label>
+                                                        <label for="checkbox1">권한 관리</label>
                                                     </div>
                                                     <div class="col-auto">
                                                         <div class="row row-20">
@@ -100,14 +100,23 @@
                             <tr>
                                 <th>부여 가능한 권한 목록</th>
                                 <td>
-                                    <div class="row row-10 align-items-end">
+                                    <div class="row row-10 align-items-start">
                                         <div class="col">
-                                            <div class="border p-3 text-left">
-                                                
+                                            <div class="border p-3 text-left d-inline-flex flex-wrap w-100" style="max-height:200px; overflow-y:auto;">
+                                                @@for(var i = 0; i < 50; i++){
+                                                <div class="available-list p-1 m-r-10 border-bottom">
+                                                    <span>
+                                                        권한명 a
+                                                    </span>
+                                                    <a href="javscript:;" class="ml-2 bg-lightgray rounded-lg px-1">
+                                                        <i class="fas fa-times"></i>
+                                                    </a>
+                                                </div>
+                                                }
                                             </div>
                                         </div>
-                                        <div class="col-auto">
-                                            <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#modal-authority-find">찾기</button>
+                                        <div class="col-1">
+                                            <button type="button" class="btn btn-dark btn-block" data-toggle="modal" data-target="#modal-authority-find">찾기</button>
                                         </div>
                                     </div>
                                 </td>
@@ -116,7 +125,7 @@
                     </table>
                     <div class="d-flex justify-content-between">
                         <a href="javascript:history.back();" class="btn btn-dark mt-2">뒤로</a>
-                        <button type="button" class="btn btn-primary mt-2" data-toggle="modal" data-target="#modal-authority-save">저장</button>
+                        <button type="button" class="btn btn-primary mt-2" data-toggle="modal" data-target="#modal-authority-save">등록</button>
                     </div>
                 </div>
                 <!-- 컨텐츠 끝 -->
@@ -131,7 +140,7 @@
     @@include('@@webRoot/_include/_modal.html')
 
     <script>
-
+        // $("#modal-authority-find").modal("show");
     </script>
 
 </body>
