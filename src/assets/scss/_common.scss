@@ -9,6 +9,7 @@
 
 .min-width-100px{min-width: 100px;}
 .width-200px{width:200px;}
+.width-600px{width:600px;}
 
 .cursor-pointer{cursor: pointer;}
 
@@ -28,6 +29,10 @@ button{border-radius: 0;border: 0;padding: 0;margin: 0;background: transparent;}
 }
 
 textarea{resize: none!important;}
+.invalid-feedback, .valid-feedback{
+    width: auto;
+    margin-left: 20px;
+}
 
 .table{
     > thead > tr > th{white-space: nowrap;}

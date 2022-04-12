@@ -425,12 +425,26 @@
         </div>
     </div>
 
-    <!-- modal : 관리 >> [공통] 삭제 {{안에만 바꿔주세요 이외는 공통입니다}}-->
-    <div class="modal" tabindex="-1" id="modal-setting-delete" data-backdrop="static">
+    <!-- modal : 계정관리 >> 저장 확인 -->
+    <div class="modal" tabindex="-1" id="modal-account-save" data-backdrop="static">
         <div class="modal-dialog modal-dialog-centered modal-sm">
             <div class="modal-content">
                 <div class="modal-body text-center">
-                    <p class="h4 py-5 m-t-10">해당 {{계정, 권한}}을 정말 삭제 하시겠습니까?<br>삭제하신 계정은 복구할 수 없습니다.</p>
+                    <p class="h4 py-5 m-t-10">계정이 생성 되었습니다.</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-dark" data-dismiss="modal">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal : 관리 >> 계정관리 >> 삭제-->
+    <div class="modal" tabindex="-1" id="modal-account-delete" data-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <p class="h4 py-5 m-t-10">해당 계정을 정말 삭제 하시겠습니까?<br>삭제하신 계정은 복구할 수 없습니다.</p>
                 </div>
                 <div class="modal-footer justify-content-center">
                     <button type="button" class="btn btn-dark">확인</button>
@@ -439,7 +453,153 @@
             </div>
         </div>
     </div>
-    
 
+    <!-- modal : 계정관리 >> 저장 확인 -->
+    <div class="modal" tabindex="-1" id="modal-account-save-fail" data-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <p class="h4 py-5 m-t-10">모든 내용을 입력해 주세요.</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-dark" data-dismiss="modal">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal : 관리 >> 권한 관리 >> 삭제-->
+    <div class="modal" tabindex="-1" id="modal-authority-delete" data-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <p class="h4 py-5 m-t-10">해당 권한을 삭제하시겠습니까?<br>권한을 삭제할 경우 소속 계정은<br> "권한없음"으로 분류됩니다.</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-dark">확인</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal : 관리 >> 권한 관리 >> 권한 계정 목록-->
+    <div class="modal" tabindex="-1" id="modal-authority-list" data-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">[권한명]]의 권한 계정 목록</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>이름</th>
+                                <th>이메일</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @@for( var i = 1; i < 5; i++){
+                            <tr>
+                                <td>김용성`+i+`</td>
+                                <td>email`+i+`@email.com</td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                    @@include('@@webRoot/_include/_pagination.html')
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-dark">확인</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal : 관리 >> 권한 관리 >> 부여 가능한 권한찾기-->
+    <div class="modal" tabindex="-1" id="modal-authority-find" data-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">부여 가능한 권한 찾기</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-height-46px">
+                        <colgroup>
+                            <col width="14.3%">
+                        
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th class="text-center">권한명</th>
+                                <td>
+                                    <input type="text" class="form-control">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="pt-4 text-center mb-2">
+                        <button class="btn btn-primary">검색 하기</button>
+                    </div>
+
+                    <hr class="hr">
+
+                    <table class="table table-bordered pt-3">
+                        <colgroup>
+                            <col width="8%;">
+                            <col>
+                            <col width="20%;">
+                            <col>
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input type="checkbox" name="AuthorUse" id="all">
+                                    <label for="all"></label>
+                                </th>
+                                <th>권한명</th>
+                                <th>설명</th>
+                                <th>계정생성 권한 유무</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @@for( var i = 1; i < 5; i++){
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="AuthorUse" id="check`+i+`">
+                                    <label for="check`+i+`"></label>
+                                </td>
+                                <td>권한명`+i+`</td>
+                                <td>
+                                    <div class="text-truncate d-block">
+                                        설명설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명  
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="text-danger">Y</span>
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                    @@include('@@webRoot/_include/_pagination.html')
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-dark">확인</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>

@@ -17,7 +17,8 @@
     <link rel="stylesheet" href="../assets/lib/jquery-ui/jquery-ui.min.css">
     <link rel="stylesheet" href="../assets/lib/swiper/css/swiper-bundle.min.css">
     <link rel="stylesheet" href="../assets/lib/bootstrap-timepicker/css/bootstrap-timepicker.min.css">
-    <link rel="stylesheet" href="../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="../assets/lib/datatables/css/dataTables.bootstrap4.css">
+
     <link href='../assets/lib/fullcalendar/core/main.css' rel='stylesheet' />
     <link href='../assets/lib/fullcalendar/daygrid/main.css' rel='stylesheet' />
     <link href='../assets/lib/fullcalendar/timegrid/main.css' rel='stylesheet' />
@@ -31,6 +32,8 @@
     <script src="../assets/lib/swiper/js/swiper-bundle.min.js"></script>
     <script src="../assets/lib/bootstrap-timepicker/js/bootstrap-timepicker.js"></script> <!-- https://jdewit.github.io/bootstrap-timepicker/ -->
     <script src="../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../assets/lib/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="../assets/lib/datatables/js/dataTables.bootstrap4.js"></script>
     <script src="../assets/lib/split.js/split.min.js"></script>
 
     <script src="../assets/js/ui.js" defer></script>
@@ -83,7 +86,7 @@
                     </a>
                 </div>
                 <nav class="sidebar">
-                    <div class="overflow-y-scroll">
+                    <div class="">
                         <!-- 정산 -->
                         <ul class="dep1" data-gnb-code="calculate">
                             <li class="has-treeview">
@@ -127,6 +130,7 @@
                                 <a href="javascript:;"><span>관리</span></a>
                                 <ul class="dep2">
                                     <li><a href="../setting/setting_account.html"><span>계정 관리</span></a></li>
+                                    <li><a href="../setting/setting_authority.html"><span>권한 관리</span></a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -137,11 +141,7 @@
             <main id="content" role="main">
 
                 <!-- 컨텐츠 시작 -->
-                <h2 class="title d-none">계정 관리</h2>
-                <h2 class="title-location">
-                    계정 관리
-                    <span class="text-gray font-size-16px font-weight-medium">관리자 계정을 생성하고 관리합니다.</span>
-                </h2>
+                <h2 class="title">권한 관리</h2>
 
                 <div class="p-3">
 
@@ -152,19 +152,50 @@
                         </colgroup>
                         <tbody>
                             <tr>
-                                <th class="text-center">관리자 찾기</th>
+                                <th class="text-center">메뉴검색</th>
                                 <td>
-                                    <div class="row row-10">
-                                        <div class="col-2">
-                                            <select name="" id="" class="custom-select w-100">
-                                                <option value="">이름</option>
-                                                <option value="">이메일</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-2">
-                                            <input type="text" class="form-control">
+                                    <div class="row row-10  align-items-center">
+                                        <div class="col">
+                                            <div class="row row-10 align-items-center">
+                                                <div class="col-auto">
+                                                    <select name="" id="" class="custom-select width-200px">
+                                                        <option value="">이름</option>
+                                                        <option value="">이메일</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <button type="button" class="btn btn-dark">추가</button>
+                                                </div>
+                                                <div class="col-auto">
+                                                    * 메뉴가 소속된 권한들을 검색합니다.
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
+                                    <div class="row row-10 m-t-10 align-items-center">
+                                        <div class="col">
+                                            <div class="row row-10 align-items-center">
+                                                <div class="col-auto">
+                                                    <select name="" id="" class="custom-select width-200px">
+                                                        <option value="">이름</option>
+                                                        <option value="">이메일</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <button type="button" class="btn btn-dark">추가</button>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <button type="button" class="btn btn-secondary">삭제</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-center">권한명</th>
+                                <td>
+                                    <input type="text" class="form-control  width-200px">
                                 </td>
                             </tr>
                         </tbody>
@@ -181,87 +212,85 @@
                     <div class="table-title-container">
                         <div class="table-title">
                             <i class="fas fa-caret-right"></i>
-                            계정목록
+                            권한 목록
                         </div>
                         <div class="row row-10">
                             <div class="col-auto">
-                                <select name="" id="" class="custom-select">
-                                    <option value="">10개씩 보기</option>
-                                </select>
+                                <a href="setting_authority_form.html" class="btn btn-primary">권한 추가</a>
                             </div>
                             <div class="col-auto">
-                                <button class="btn btn-primary">신규 등록</button>
+                                <select name="" id="" class="custom-select">
+                                    <option value="">100개씩 보기</option>
+                                </select>
                             </div>
                         </div>
                     </div>
+                    <div class="main_search_result_list">
+                        <table class="table table-fixed table-center table-bordered" id="datatable1">
+                            <thead>
+                                <th>권한명</th>
+                                <th>이름</th>
+                                <th>삭제</th>
+                            </thead>
+                            <tbody>
 
-                    <table class="table table-fixed table-center table-bordered">
-                        <thead>
-                            <th data-orderable="false">이름</th>
-                            <th data-orderable="false">이메일</th>
-                            <th data-orderable="false">권한</th>
-                            <th data-orderable="false">소속사</th>
-                            <th>최종 접속일</th>
-                            <th data-orderable="false">등록일</th>
-                            <th data-orderable="false">등록자</th>
-                            <th data-orderable="false">잠금</th>
-                            <th data-orderable="false">삭제</th>
-                            <th data-orderable="false">로그</th>
-                        </thead>
-                        <tbody>
+                                <tr>
+                                    <td>
+                                        <!-- 잠금일경우 class="text-gray" 추가 -->
+                                        <a href="setting_authority_form.html" class="text-underline">권한명 1</a>
+                                    </td>
+                                    <td>
+                                        <a href="#modal-authority-list" data-toggle="modal" class="text-underline">99</a>
+                                    </td>
+                                    <td>
+                                        <a href="#modal-authority-delete" data-toggle="modal" class="btn btn-outline-secondary btn-sm">삭제</a>
+                                    </td>
+                                </tr>
 
-                            <tr>
-                                <td>
-                                    <a href="#modal-system-app" data-toggle="modal">앱 이름 1</a>
-                                </td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>
-                                    <a href="system_link_detail.html" class="btn btn-outline-secondary btn-sm font-weight-bold">보기</a>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>
+                                        <!-- 잠금일경우 class="text-gray" 추가 -->
+                                        <a href="setting_authority_form.html" class="text-underline">권한명 2</a>
+                                    </td>
+                                    <td>
+                                        <a href="#modal-authority-list" data-toggle="modal" class="text-underline">99</a>
+                                    </td>
+                                    <td>
+                                        <a href="#modal-authority-delete" data-toggle="modal" class="btn btn-outline-secondary btn-sm">삭제</a>
+                                    </td>
+                                </tr>
 
-                            <tr>
-                                <td>
-                                    <a href="#modal-system-app" data-toggle="modal">앱 이름 2</a>
-                                </td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>
-                                    <a href="system_link_detail.html" class="btn btn-outline-secondary btn-sm font-weight-bold">보기</a>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>
+                                        <!-- 잠금일경우 class="text-gray" 추가 -->
+                                        <a href="setting_authority_form.html" class="text-underline">권한명 3</a>
+                                    </td>
+                                    <td>
+                                        <a href="#modal-authority-list" data-toggle="modal" class="text-underline">99</a>
+                                    </td>
+                                    <td>
+                                        <a href="#modal-authority-delete" data-toggle="modal" class="btn btn-outline-secondary btn-sm">삭제</a>
+                                    </td>
+                                </tr>
 
-                            <tr>
-                                <td>
-                                    <a href="#modal-system-app" data-toggle="modal">앱 이름 3</a>
-                                </td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>
-                                    <a href="system_link_detail.html" class="btn btn-outline-secondary btn-sm font-weight-bold">보기</a>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>
+                                        <!-- 잠금일경우 class="text-gray" 추가 -->
+                                        <a href="setting_authority_form.html" class="text-underline">권한명 4</a>
+                                    </td>
+                                    <td>
+                                        <a href="#modal-authority-list" data-toggle="modal" class="text-underline">99</a>
+                                    </td>
+                                    <td>
+                                        <a href="#modal-authority-delete" data-toggle="modal" class="btn btn-outline-secondary btn-sm">삭제</a>
+                                    </td>
+                                </tr>
 
-                            <tr>
-                                <td>
-                                    <a href="#modal-system-app" data-toggle="modal">앱 이름 4</a>
-                                </td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>n</td>
-                                <td>
-                                    <a href="system_link_detail.html" class="btn btn-outline-secondary btn-sm font-weight-bold">보기</a>
-                                </td>
-                            </tr>
-
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
                     <!-- 필요할것 같아서 넣어놨어요!!  필요 없으면 지워주세요 -->
-                    <div class="w-100 border-bottom pt-5 pb-9">
+                    <div class="w-100 pt-5 pb-9">
                         <nav aria-label="Page navigation">
                             <ul class="pagination justify-content-center">
                                 <li class="page-item disabled">
@@ -315,7 +344,9 @@
                             </ul>
                         </nav>
                     </div>
-                    <!-- <a href="javascript:history.back();" class="btn btn-dark mt-2">뒤로</a> -->
+                    <!-- <div class="border-top d-flex justify-content-between">
+                        <a href="javascript:history.back();" class="btn btn-dark mt-2">뒤로</a>
+                    </div> -->
                     <!-- 지워도 되는 영역 끝 -->
                 </div>
                 <!-- 컨텐츠 끝 -->
@@ -336,7 +367,7 @@
     <div>
         <!-- modal : 비밀번호 변경 -->
         <div class="modal" tabindex="-1" id="modal-password" data-backdrop="static">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">비밀번호 변경</h5>
@@ -384,7 +415,7 @@
 
         <!-- modal : 반영완료 -->
         <div class="modal" tabindex="-1" id="modal-reflect" data-backdrop="static">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
                     <div class="modal-body text-center">
                         <p class="h4 py-5 m-t-10">반영 완료</p>
@@ -398,7 +429,7 @@
 
         <!-- modal : 연동 정보 관리 >> 앱 등록 / 수정 -->
         <div class="modal" tabindex="-1" id="modal-system-app" data-backdrop="static" data-overlap="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">앱 등록 / 수정</h5>
@@ -434,7 +465,7 @@
 
         <!-- modal : 연동 정보 관리 >> 이용권 그룹 등록 / 수정 -->
         <div class="modal" tabindex="-1" id="modal-system-group" data-backdrop="static" data-overlap="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">이용권 그룹 등록 / 수정</h5>
@@ -478,7 +509,7 @@
 
         <!-- modal : 연동 정보 관리 >> 아티스트 등록 / 수정 -->
         <div class="modal" tabindex="-1" id="modal-system-artist" data-backdrop="static" data-overlap="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">아티스트 등록 / 수정</h5>
@@ -514,7 +545,7 @@
 
         <!-- modal : 연동 정보 관리 >> 상품 등록 / 수정 -->
         <div class="modal" tabindex="-1" id="modal-system-product" data-backdrop="static" data-overlap="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">상품 등록 / 수정</h5>
@@ -550,7 +581,7 @@
 
         <!-- modal : 연동 정보 관리 >> [공통] 저장 확인-->
         <div class="modal" tabindex="-1" id="modal-system-save-complete" data-backdrop="static">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
                     <div class="modal-body text-center">
                         <p class="h4 py-5 m-t-10">저장하시겠습니까?</p>
@@ -565,7 +596,7 @@
 
         <!-- modal : 연동 정보 관리 >> [공통] 저장 불가  {{안에만 바꿔주세요 이외는 공통입니다}}-->
         <div class="modal" tabindex="-1" id="modal-system-save-fail" data-backdrop="static">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
                     <div class="modal-body text-center">
                         <p class="h4 py-5 m-t-10">동일한 {{앱 그룹}} 연동 ID가 존재합니다.</p>
@@ -579,7 +610,7 @@
 
         <!-- modal : 소속사 관리 >> 소속사 등록 / 수정 -->
         <div class="modal" tabindex="-1" id="modal-agency" data-backdrop="static" data-overlap="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">소속사 등록 / 수정</h5>
@@ -608,7 +639,7 @@
 
         <!-- modal : 소속사 관리 >> 소속사 삭제 -->
         <div class="modal" tabindex="-1" id="modal-agency-delete" data-backdrop="static" data-overlap="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">소속사 삭제</h5>
@@ -644,7 +675,7 @@
 
         <!-- modal : 소속사 관리 >> 저장 확인-->
         <div class="modal" tabindex="-1" id="modal-agency-save-complete" data-backdrop="static">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
                     <div class="modal-body text-center">
                         <p class="h4 py-5 m-t-10">소속사명을 저장합니다.</p>
@@ -659,7 +690,7 @@
 
         <!-- modal : 소속사 관리 >> 삭제 확인-->
         <div class="modal" tabindex="-1" id="modal-agency-delete-confirm" data-backdrop="static">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
                     <div class="modal-body text-center">
                         <p class="h4 py-5 m-t-10">소속사를 삭제하시겠습니까?</p>
@@ -674,7 +705,7 @@
 
         <!-- modal : 소속사 관리 >> 삭제 불가-->
         <div class="modal" tabindex="-1" id="modal-agency-delete-fail" data-backdrop="static">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
                     <div class="modal-body text-center">
                         <p class="h4 py-5 m-t-10">계정 정보가 일치하지 않습니다.</p>
@@ -686,10 +717,426 @@
             </div>
         </div>
 
+        <!-- modal : 계정관리 >> 잠금 해제-->
+        <div class="modal" tabindex="-1" id="modal-unlock" data-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <p class="h4 py-5 m-t-10">해당 계정의 잠금을 해제하시겠습니가?</p>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-dark">확인</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- modal : 계정관리 >> 잠금 해제-->
+        <div class="modal" tabindex="-1" id="modal-lock" data-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <p class="h4 py-5 m-t-10">해당 계정을 잠금 상태로 전환합니다.</p>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-dark">확인</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- modal : 계정관리 >> 로그 보기-->
+        <div class="modal" tabindex="-1" id="modal-account-log" data-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">{{관리자1}}의 로그 기록</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body border w-100" style="max-height: 500px;  overflow-y : auto;">
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                        asdfadfasd<br><br>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-dark">확인</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- modal : 계정관리 >> 저장 확인 -->
+        <div class="modal" tabindex="-1" id="modal-account-save" data-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <p class="h4 py-5 m-t-10">계정이 생성 되었습니다.</p>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-dark" data-dismiss="modal">확인</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- modal : 관리 >> 계정관리 >> 삭제-->
+        <div class="modal" tabindex="-1" id="modal-account-delete" data-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <p class="h4 py-5 m-t-10">해당 계정을 정말 삭제 하시겠습니까?<br>삭제하신 계정은 복구할 수 없습니다.</p>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-dark">확인</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- modal : 계정관리 >> 저장 확인 -->
+        <div class="modal" tabindex="-1" id="modal-account-save-fail" data-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <p class="h4 py-5 m-t-10">모든 내용을 입력해 주세요.</p>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-dark" data-dismiss="modal">확인</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- modal : 관리 >> 권한 관리 >> 삭제-->
+        <div class="modal" tabindex="-1" id="modal-authority-delete" data-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <p class="h4 py-5 m-t-10">해당 권한을 삭제하시겠습니까?<br>권한을 삭제할 경우 소속 계정은<br> "권한없음"으로 분류됩니다.</p>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-dark">확인</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- modal : 관리 >> 권한 관리 >> 권한 계정 목록-->
+        <div class="modal" tabindex="-1" id="modal-authority-list" data-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered modal-md">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">[권한명]]의 권한 계정 목록</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>이름</th>
+                                    <th>이메일</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td>김용성1</td>
+                                    <td>email1@email.com</td>
+                                </tr>
+
+                                <tr>
+                                    <td>김용성2</td>
+                                    <td>email2@email.com</td>
+                                </tr>
+
+                                <tr>
+                                    <td>김용성3</td>
+                                    <td>email3@email.com</td>
+                                </tr>
+
+                                <tr>
+                                    <td>김용성4</td>
+                                    <td>email4@email.com</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.5" height="12.5">
+                                            <path stroke="#000" fill="none" d="M10.858 11.498 5.499 5.997l5.359-5.5" />
+                                            <path stroke="#000" fill="none" d="M5.858 11.498.499 5.997l5.359-5.5" />
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="8.5" height="12.5">
+                                            <path stroke="#000" fill="none" d="M5.858 11.498.499 5.997l5.359-5.5" />
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+
+                                <li class="page-item"><a class="page-link" href="#">4</a></li>
+
+                                <li class="page-item"><a class="page-link" href="#">5</a></li>
+
+                                <li class="page-item"><a class="page-link" href="#">6</a></li>
+
+                                <li class="page-item"><a class="page-link" href="#">7</a></li>
+
+                                <li class="page-item"><a class="page-link" href="#">8</a></li>
+
+                                <li class="page-item"><a class="page-link" href="#">9</a></li>
+
+                                <li class="page-item">
+                                    <a class="page-link" href="#">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="8.5" height="12.5">
+                                            <path stroke="#000" fill="none" d="m2.141.497 5.359 5.5-5.359 5.501" />
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.5" height="12.5">
+                                            <path stroke="#000" fill="none" d="m2.141.497 5.358 5.5-5.358 5.501" />
+                                            <path stroke="#000" fill="none" d="m7.141.497 5.358 5.5-5.358 5.501" />
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-dark">확인</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- modal : 관리 >> 권한 관리 >> 부여 가능한 권한찾기-->
+        <div class="modal" tabindex="-1" id="modal-authority-find" data-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered modal-md">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">부여 가능한 권한 찾기</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-height-46px">
+                            <colgroup>
+                                <col width="14.3%">
+
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th class="text-center">권한명</th>
+                                    <td>
+                                        <input type="text" class="form-control">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="pt-4 text-center mb-2">
+                            <button class="btn btn-primary">검색 하기</button>
+                        </div>
+
+                        <hr class="hr">
+
+                        <table class="table table-bordered pt-3">
+                            <colgroup>
+                                <col width="8%;">
+                                <col>
+                                <col width="20%;">
+                                <col>
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <input type="checkbox" name="AuthorUse" id="all">
+                                        <label for="all"></label>
+                                    </th>
+                                    <th>권한명</th>
+                                    <th>설명</th>
+                                    <th>계정생성 권한 유무</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="AuthorUse" id="check1">
+                                        <label for="check1"></label>
+                                    </td>
+                                    <td>권한명1</td>
+                                    <td>
+                                        <div class="text-truncate d-block">
+                                            설명설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="text-danger">Y</span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="AuthorUse" id="check2">
+                                        <label for="check2"></label>
+                                    </td>
+                                    <td>권한명2</td>
+                                    <td>
+                                        <div class="text-truncate d-block">
+                                            설명설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="text-danger">Y</span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="AuthorUse" id="check3">
+                                        <label for="check3"></label>
+                                    </td>
+                                    <td>권한명3</td>
+                                    <td>
+                                        <div class="text-truncate d-block">
+                                            설명설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="text-danger">Y</span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="AuthorUse" id="check4">
+                                        <label for="check4"></label>
+                                    </td>
+                                    <td>권한명4</td>
+                                    <td>
+                                        <div class="text-truncate d-block">
+                                            설명설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="text-danger">Y</span>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.5" height="12.5">
+                                            <path stroke="#000" fill="none" d="M10.858 11.498 5.499 5.997l5.359-5.5" />
+                                            <path stroke="#000" fill="none" d="M5.858 11.498.499 5.997l5.359-5.5" />
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="8.5" height="12.5">
+                                            <path stroke="#000" fill="none" d="M5.858 11.498.499 5.997l5.359-5.5" />
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+
+                                <li class="page-item"><a class="page-link" href="#">4</a></li>
+
+                                <li class="page-item"><a class="page-link" href="#">5</a></li>
+
+                                <li class="page-item"><a class="page-link" href="#">6</a></li>
+
+                                <li class="page-item"><a class="page-link" href="#">7</a></li>
+
+                                <li class="page-item"><a class="page-link" href="#">8</a></li>
+
+                                <li class="page-item"><a class="page-link" href="#">9</a></li>
+
+                                <li class="page-item">
+                                    <a class="page-link" href="#">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="8.5" height="12.5">
+                                            <path stroke="#000" fill="none" d="m2.141.497 5.359 5.5-5.359 5.501" />
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.5" height="12.5">
+                                            <path stroke="#000" fill="none" d="m2.141.497 5.358 5.5-5.358 5.501" />
+                                            <path stroke="#000" fill="none" d="m7.141.497 5.358 5.5-5.358 5.501" />
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-dark">확인</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <script>
-
+        $(document).ready(function() {});
     </script>
 
 </body>
