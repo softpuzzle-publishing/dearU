@@ -233,3 +233,8 @@ textarea.form-control{resize: none;}
 }
 
 
+.table-responsive{
+    max-height: 70vh;
+    overflow: auto;
+    border-top: 1px solid $border-color;
+}

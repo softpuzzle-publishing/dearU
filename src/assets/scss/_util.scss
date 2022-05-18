@@ -1,11 +1,11 @@
 .login{
-    background: #2d2d2d url(../images/img-logo-white.svg) repeat-y;
+    background: #f7f7f7;
     height: 100%;
     width: 100%;
     background-position: -521px -377px;
     background-size: cover;
     background-blend-mode: soft-light;
     .inner{
-        width: 450px;margin: 0 auto;background: #f5f5fa;padding: 3rem;border-radius: .75rem;box-shadow: 3px 5px 15px rgba(0,0,0,0.05);
+        width: 450px;margin: 0 auto;background: $white;padding: 3rem;border-radius: .75rem;box-shadow: 3px 5px 15px rgba(0,0,0,0.05);
     }
 }
